@@ -6,6 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { fetchWebsiteEvents, WebsiteEvent } from '@/services/events.service';
+import FallbackImage from '@/components/FallbackImage';
 
 function getStoredWebsiteId(): string | undefined {
   if (typeof window === 'undefined') return undefined;
@@ -127,9 +128,7 @@ export default function ProjectsSection() {
                       .replace(/\s+/g, '-')
                       .replace(/[^a-z0-9-]/g, '');
 
-              const imageSrc = String(
-                item.image ?? item.heroImage ?? item.banner ?? '/assets/blogs/blog-1.webp',
-              );
+              const imageSrc = String(item.image ?? item.heroImage ?? item.banner ?? '');
 
               const category = String(item.category ?? 'Events');
 
@@ -140,7 +139,14 @@ export default function ProjectsSection() {
                     ref={index === 0 ? customLeftRef : customRightRef}
                   >
                     <div className="project-image-wrap">
-                      <Image src={imageSrc} alt={title} fill className="project-image" />
+                      <FallbackImage
+                        src={imageSrc}
+                        alt={title}
+                        fill
+                        className="project-image"
+                        fallbackSrc="/assets/blogs/p1.jpg"
+                        unoptimized={imageSrc.startsWith('http')}
+                      />
                     </div>
 
                     <div className="project-overlay">
@@ -162,71 +168,76 @@ export default function ProjectsSection() {
           )}
         </div>
 
-        <div className="project-top-bar">
-          <h6 className="project-subtitle">
-            <span className="project-subtitle-icon">
-              <Image src="/assets/icon.png" alt="Video Showcase" width={20} height={20} />
-            </span>
-            <span>Video Showcase</span>
-          </h6>
+        {/* Video Showcase is temporarily hidden from the home page. */}
+        {false && (
+          <>
+            <div className="project-top-bar">
+              <h6 className="project-subtitle">
+                <span className="project-subtitle-icon">
+                  <Image src="/assets/icon.png" alt="Video Showcase" width={20} height={20} />
+                </span>
+                <span>Video Showcase</span>
+              </h6>
 
-          <Link href="/videos" className="talk-btn">
-            <span>More Videos</span>
-            <div className="talk-btn-icon">
-              <ArrowUpRight size={18} />
-            </div>
-          </Link>
-        </div>
-
-        <div className="project-grid">
-          {videos.map((item, index) => (
-            <div
-              key={item.title}
-              className="project-card interactive"
-              ref={index === 0 ? videoLeftRef : videoRightRef}
-            >
-              <div className="project-video-wrap" style={{ position: 'relative' }}>
-                <iframe
-                  key={activeVideo === index ? `play-${index}` : `pause-${index}`}
-                  src={
-                    activeVideo === index
-                      ? `${item.videoUrl}?autoplay=1&rel=0`
-                      : `${item.videoUrl}?rel=0`
-                  }
-                  title={item.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-
-                {activeVideo !== index && (
-                  <div
-                    onClick={() => setActiveVideo(index)}
-                    style={{
-                      position: 'absolute',
-                      inset: 0,
-                      cursor: 'pointer',
-                      zIndex: 5,
-                    }}
-                  />
-                )}
-              </div>
-
-              <div className="project-overlay">
-                <span className="project-category">{item.category}</span>
-
-                <div className="project-content">
-                  <h3>{item.title}</h3>
+              <Link href="/videos" className="talk-btn">
+                <span>More Videos</span>
+                <div className="talk-btn-icon">
+                  <ArrowUpRight size={18} />
                 </div>
-              </div>
-              <div className="project-caption">
-                {/* <div className="project-caption-inner">
-                  <span className="project-caption-title">{item.title}</span>
-                </div> */}
-              </div>
+              </Link>
             </div>
-          ))}
-        </div>
+
+            <div className="project-grid">
+              {videos.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="project-card interactive"
+                  ref={index === 0 ? videoLeftRef : videoRightRef}
+                >
+                  <div className="project-video-wrap" style={{ position: 'relative' }}>
+                    <iframe
+                      key={activeVideo === index ? `play-${index}` : `pause-${index}`}
+                      src={
+                        activeVideo === index
+                          ? `${item.videoUrl}?autoplay=1&rel=0`
+                          : `${item.videoUrl}?rel=0`
+                      }
+                      title={item.title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+
+                    {activeVideo !== index && (
+                      <div
+                        onClick={() => setActiveVideo(index)}
+                        style={{
+                          position: 'absolute',
+                          inset: 0,
+                          cursor: 'pointer',
+                          zIndex: 5,
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  <div className="project-overlay">
+                    <span className="project-category">{item.category}</span>
+
+                    <div className="project-content">
+                      <h3>{item.title}</h3>
+                    </div>
+                  </div>
+                  <div className="project-caption">
+                    {/* <div className="project-caption-inner">
+                      <span className="project-caption-title">{item.title}</span>
+                    </div> */}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

@@ -18,19 +18,21 @@ export type CoreMediaPage = BotLink & {
 export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   {
     title: 'Home',
-    description: 'Visit the CORE Media homepage.',
+    description: 'Visit the Vishwasai Consultancy homepage.',
     href: '/',
     keywords: ['home', 'homepage', 'main page'],
   },
   {
     title: 'About Us',
-    description: 'Learn about CORE Media and its leadership.',
+    description: 'Learn about Vishwasai Consultancy and its leadership.',
     href: '/about-us',
     keywords: [
       'about',
       'about us',
       'company',
       'core media',
+      'vishwasai',
+      'vishwasai consultancy',
       'founder',
       'leadership',
       'team',
@@ -41,7 +43,7 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   },
   {
     title: 'Services',
-    description: 'Explore CORE Media services and business solutions.',
+    description: 'Explore Vishwasai Consultancy services and business solutions.',
     href: '/services',
     keywords: [
       'service',
@@ -61,7 +63,7 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   },
   {
     title: 'Videos',
-    description: 'Watch CORE Media videos and showcases.',
+    description: 'Watch Vishwasai Consultancy videos and showcases.',
     href: '/videos',
     keywords: ['video', 'videos', 'watch', 'showcase'],
   },
@@ -83,7 +85,7 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   },
   {
     title: 'Social Media',
-    description: 'Explore CORE Media social media solutions.',
+    description: 'Explore Vishwasai Consultancy social media solutions.',
     href: '/social-media',
     keywords: ['social', 'social media', 'social media campaign', 'social campaign'],
   },
@@ -95,7 +97,7 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   },
   {
     title: 'Blogs',
-    description: 'Read CORE Media blogs and articles.',
+    description: 'Read Vishwasai Consultancy blogs and articles.',
     href: '/blogs',
     keywords: [
       'blog',
@@ -112,13 +114,13 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
   },
   {
     title: 'Registration',
-    description: 'Register for CORE Media events and initiatives.',
+    description: 'Register for Vishwasai Consultancy events and initiatives.',
     href: '/registration',
     keywords: ['register', 'registration', 'participate', 'join', 'apply', 'entry'],
   },
   {
     title: 'Contact Us',
-    description: 'Contact the CORE Media team.',
+    description: 'Contact the Vishwasai Consultancy team.',
     href: '/#contact-section',
     keywords: [
       'contact',
@@ -142,21 +144,21 @@ export const CORE_MEDIA_KNOWLEDGE = `
 COMPANY
 
 Name:
-CORE Media
+Vishwasai Consultancy LLP
 
 Tagline:
 Powering Partnerships That Matter.
 The Catalyst for Business Conversations.
 
-ABOUT CORE MEDIA
+ABOUT VISHWASAI CONSULTANCY
 
-CORE Media creates meaningful platforms that bring together technology
+Vishwasai Consultancy creates meaningful platforms that bring together technology
 leaders, enterprises and innovators to exchange ideas, celebrate excellence
 and drive business growth.
 
-CORE MEDIA SPECIALIZATIONS
+VISHWASAI CONSULTANCY SPECIALIZATIONS
 
-CORE Media specializes in:
+Vishwasai Consultancy specializes in:
 
 - B2B technology events
 - Executive engagement platforms
@@ -171,7 +173,7 @@ CORE Media specializes in:
 
 COMMUNITY REACH
 
-CORE Media engages more than 36,000 ICT decision-makers and influencers
+Vishwasai Consultancy engages more than 36,000 ICT decision-makers and influencers
 across key industries through its trusted platforms and events.
 
 LEADERSHIP TEAM
@@ -182,11 +184,11 @@ LEADERSHIP TEAM
 
 FOUNDER'S MESSAGE
 
-CORE Media was built with a clear purpose: to create meaningful platforms
+Vishwasai Consultancy was built with a clear purpose: to create meaningful platforms
 that bring together technology leaders, enterprises and innovators to
 exchange ideas, celebrate excellence and drive business growth.
 
-CORE MEDIA PLATFORMS AND INITIATIVES
+VISHWASAI CONSULTANCY PLATFORMS AND INITIATIVES
 
 CIO Choice:
 
@@ -226,7 +228,7 @@ in candid conversations and build professional connections.
 
 LeaderNext:
 
-A CORE Media leadership and technology initiative.
+A Vishwasai Consultancy leadership and technology initiative.
 
 ASSOCIATE BRANDS
 
@@ -263,7 +265,7 @@ Phone:
 +91 7506035537
 
 Email:
-contact@core-mediagroup.com
+info@vishwasaiconsultancy.com
 
 Office address:
 
@@ -276,9 +278,9 @@ India.
 
 PARTNERSHIP INFORMATION
 
-Organizations interested in partnering with CORE Media can:
+Organizations interested in partnering with Vishwasai Consultancy can:
 
 - Use the Get in Touch form
 - Call +91 7506035537
-- Email contact@core-mediagroup.com
+- Email info@vishwasaiconsultancy.com
 `.trim();

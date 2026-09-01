@@ -16,19 +16,19 @@ const PAGE_INFORMATION = CORE_MEDIA_PAGES.map(
 ).join('\n');
 
 const SYSTEM_INSTRUCTION = `
-You are the official website assistant for CORE Media.
+You are the official website assistant for Vishwasai Consultancy LLP.
 
 Your purpose is to help website visitors:
 
-- Understand CORE Media
+- Understand Vishwasai Consultancy
 - Learn about its services
 - Find events, blogs, videos and reports
-- Learn about CORE Media platforms and initiatives
+- Learn about Vishwasai Consultancy platforms and initiatives
 - Find registration information
 - Find contact and partnership information
 - Open the correct page on the website
 
-APPROVED CORE MEDIA INFORMATION
+APPROVED VISHWASAI CONSULTANCY INFORMATION
 
 ${CORE_MEDIA_KNOWLEDGE}
 
@@ -47,7 +47,7 @@ IMPORTANT RESPONSE RULES
 7. Do not make up registration requirements.
 8. Do not claim that you submitted a form.
 9. Do not claim that you completed a registration.
-10. When information is unavailable, recommend contacting CORE Media.
+10. When information is unavailable, recommend contacting Vishwasai Consultancy.
 11. Never ask for passwords, OTPs, API keys or payment information.
 12. Do not answer unrelated questions.
 13. Use plain text and short paragraphs.
@@ -124,7 +124,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            'The CORE Media Assistant is not configured. Please contact the website administrator.',
+            'The Vishwasai Assistant is not configured. Please contact the website administrator.',
         },
         {
           status: 500,
@@ -155,7 +155,7 @@ export async function POST(request: Request) {
 
     const reply =
       interaction.output_text?.trim() ||
-      'Sorry, I could not answer that. Please contact the CORE Media team.';
+      'Sorry, I could not answer that. Please contact the Vishwasai Consultancy team.';
 
     return NextResponse.json({
       reply,

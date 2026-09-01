@@ -16,6 +16,10 @@ export const API_ENDPOINTS = {
       BASE: '/api/v1/website/events',
       BY_ID: (id: string) => `/api/v1/website/events/${encodeURIComponent(id)}`,
     },
+    BLOGS: {
+      BASE: '/api/v1/website/blogs',
+      BY_ID: (id: string) => `/api/v1/website/blogs/${encodeURIComponent(id)}`,
+    },
     BLOG_COMMENTS: {
       BASE: (id: string) => `/api/v1/website/blogs/${encodeURIComponent(id)}/comments`,
     },

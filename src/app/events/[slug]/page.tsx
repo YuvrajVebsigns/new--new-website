@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { ArrowUpLeft, ArrowUpRight } from 'lucide-react';
+import { ArrowUpLeft } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import ClientErrorBoundary from '@/components/ClientErrorBoundary';
 import EventDetailsAnimated from '@/components/EventDetailsAnimated';
@@ -49,7 +49,7 @@ function formatEventDate(value: unknown): string {
 }
 
 function getEventImage(event?: WebsiteEvent | null): string {
-  if (!event) return '/assets/blogs/blog-1.webp';
+  if (!event) return '/assets/blogs/p1.jpg';
 
   if (event.bannerImage?.large) return event.bannerImage.large;
   if (event.bannerImage?.medium) return event.bannerImage.medium;
@@ -75,7 +75,7 @@ function getEventImage(event?: WebsiteEvent | null): string {
     getString(getEventField(event, 'banner')) ||
     getString(getEventField(event, 'poster'));
 
-  return image || '/assets/blogs/blog-1.webp';
+  return image || '/assets/blogs/p1.jpg';
 }
 
 function getEventCategory(event?: WebsiteEvent | null): string {
@@ -399,7 +399,7 @@ export default function EventDetailsPage() {
             alt={typeof data?.caption === 'string' ? data.caption : 'Event image'}
             width={1200}
             height={675}
-            fallbackSrc="/assets/blogs/blog-1.webp"
+            fallbackSrc="/assets/blogs/p1.jpg"
             unoptimized
           />
         </div>
@@ -476,16 +476,16 @@ export default function EventDetailsPage() {
             ) : null}
 
             <div className="event-buttons-row">
-              <Link href="/register" className="talk-btn">
+              {/* <Link href="/register" className="talk-btn">
                 <span>Registration</span>
 
                 <div className="talk-btn-icon">
                   <ArrowUpRight size={18} />
                 </div>
-              </Link>
+              </Link> */}
 
               <div className="share-container1">
-                <button
+                {/* <button
                   type="button"
                   className="talk-btn"
                   onClick={() => setShowShareOptions((s) => !s)}
@@ -498,7 +498,7 @@ export default function EventDetailsPage() {
                   <div className="talk-btn-icon">
                     <ArrowUpRight size={18} />
                   </div>
-                </button>
+                </button> */}
 
                 {showShareOptions ? (
                   <div className="share-popup" role="menu" aria-labelledby="share-button">

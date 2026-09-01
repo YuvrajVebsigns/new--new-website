@@ -1,262 +1,261 @@
+// 'use client';
+
+// import Link from 'next/link';
+// import Image from 'next/image';
+// import { Phone, MapPin } from 'lucide-react';
+// // import { Send, Mail } from 'lucide-react';
+// // import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
+// // import { useState, useEffect } from 'react';
+// // import { submitSubscribe } from '@/services/subscribes.service';
+
+// export default function Footer() {
+//   return (
+//     <footer className="footer-section">
+//       <div className="footer-main">
+//         <div className="footer-container">
+//           <div className="footer-grid">
+//             <div className="footer-widget footer-brand">
+//               <Link href="/" className="footer-logo">
+//                 <Image
+//                   src="/assets/vishwasai/Vlogo-darkk.png"
+//                   alt="Vishwasai Consultancy"
+//                   width={190}
+//                   height={130}
+//                   className="footer-logo-image"
+//                 />
+//               </Link>
+
+//               <p className="footer-description">
+//                 Expert consultancy for co-operative agriculture and finance
+//               </p>
+
+//               <p className="footer-since">Since 2009</p>
+//             </div>
+
+//             <div className="footer-widget">
+//               <h4 className="footer-title">Quick Links</h4>
+
+//               <ul className="footer-links">
+//                 <li><Link href="/">Home</Link></li>
+//                 <li><Link href="/about-us">About Us</Link></li>
+//                 <li><Link href="/services">Services</Link></li>
+//                 <li><Link href="/portfolio">Portfolio</Link></li>
+//                 <li><Link href="/blog">Blog</Link></li>
+//                 <li><Link href="/events">Events</Link></li>
+//                 <li><Link href="/videos">Videos</Link></li>
+//                 <li><Link href="/contact">Contact Us</Link></li>
+//               </ul>
+//             </div>
+
+//             <div className="footer-widget">
+//               <h4 className="footer-title">Services</h4>
+
+//               <ul className="footer-links">
+//                 <li>Multistate Credit Cooperative Societies</li>
+//                 <li>NBFC Consultancy</li>
+//                 <li>FPO Consultancy</li>
+//                 <li>Project Funding</li>
+//                 <li>Loan Funding</li>
+//                 <li>Management Consulting</li>
+//                 <li>Real Estate Consulting</li>
+//                 <li>Business Development</li>
+//                 <li>Export-Import Consulting</li>
+//               </ul>
+//             </div>
+
+//             <div className="footer-widget">
+//               <h4 className="footer-title">Contact</h4>
+
+//               <div className="footer-office">
+//                 <p className="footer-office-text">
+//                   Platinum 9, 4th Floor, A/20, No. 52/5, Sr.No. 1, Pashan - Sus Rd, Near Audi
+//                   Showroom, Baner, Pune, Maharashtra 411045
+//                 </p>
+
+//                 <a href="tel:9588686363" className="footer-office-item">
+//                   <span className="footer-office-icon">
+//                     <Phone size={15} />
+//                   </span>
+//                   <span className="footer-office-text">9588686363</span>
+//                 </a>
+
+//                 <a href="mailto:vishwasai@vishwasai.com" className="footer-office-item">
+//                   <span className="footer-office-icon">
+//                     <Phone size={15} />
+//                   </span>
+//                   <span className="footer-office-text">vishwasai@vishwasai.com</span>
+//                 </a>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
+
 'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, Send } from 'lucide-react';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
-import { useState, useEffect } from 'react';
-import { submitSubscribe } from '@/services/subscribes.service';
+import { Phone, MapPin } from 'lucide-react';
+// import { Send, Mail } from 'lucide-react';
+// import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa6';
+// import { useState, useEffect } from 'react';
+// import { submitSubscribe } from '@/services/subscribes.service';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [popupMessage, setPopupMessage] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!popupMessage) return;
-
-    const timer = window.setTimeout(() => {
-      setPopupMessage(null);
-    }, 3200);
-
-    return () => window.clearTimeout(timer);
-  }, [popupMessage]);
-
-  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Clear message
-    setPopupMessage(null);
-
-    // Validate email
-    if (!email || !email.includes('@')) {
-      setPopupMessage('Please enter a valid email address');
-      return;
-    }
-
-    setIsLoading(true);
-
-    try {
-      await submitSubscribe({ email });
-      setPopupMessage('Successfully subscribed!.');
-      setEmail('');
-    } catch (error: unknown) {
-      const message =
-        error instanceof Error ? error.message : 'Failed to subscribe. Please try again.';
-      setPopupMessage(message);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  // Subscribe form logic kept here for easy re-enabling — not part of the
+  // current reference design, which shows a simple 4-column footer.
+  //
+  // const [email, setEmail] = useState('');
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [popupMessage, setPopupMessage] = useState<string | null>(null);
+  //
+  // useEffect(() => {
+  //   if (!popupMessage) return;
+  //   const timer = window.setTimeout(() => setPopupMessage(null), 3200);
+  //   return () => window.clearTimeout(timer);
+  // }, [popupMessage]);
+  //
+  // const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   setPopupMessage(null);
+  //   if (!email || !email.includes('@')) {
+  //     setPopupMessage('Please enter a valid email address');
+  //     return;
+  //   }
+  //   setIsLoading(true);
+  //   try {
+  //     await submitSubscribe({ email });
+  //     setPopupMessage('Successfully subscribed!.');
+  //     setEmail('');
+  //   } catch (error: unknown) {
+  //     const message =
+  //       error instanceof Error ? error.message : 'Failed to subscribe. Please try again.';
+  //     setPopupMessage(message);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   return (
     <footer className="footer-section">
-      {/* MAIN FOOTER */}
       <div className="footer-main">
         <div className="footer-container">
           <div className="footer-grid">
-            {/* COLUMN 1 */}
+            {/* COLUMN 1 — BRAND */}
             <div className="footer-widget footer-brand">
               <Link href="/" className="footer-logo">
                 <Image
-                  src="/assets/logo/logo.png"
-                  alt="Core Media"
-                  width={180}
-                  height={70}
-                  priority
+                  src="/assets/vishwasai/Vlogo-darkk.png"
+                  alt="Vishwasai Consultancy"
+                  width={190}
+                  height={130}
+                  className="footer-logo-image"
                 />
               </Link>
 
-              {/* <p className="footer-description">
-                Developing personalized customer journeys to increase customer satisfaction,
-                engagement, and long-term loyalty for business growth.
-              </p> */}
+              <p className="footer-description">
+                Empowering cooperatives, enabling growth and building a stronger financial future.
+              </p>
             </div>
 
-            {/* COLUMN 2 */}
+            {/* COLUMN 2 — QUICK LINKS */}
             <div className="footer-widget">
-              <h4 className="footer-title">Services</h4>
+              <h4 className="footer-title">Quick Links</h4>
 
               <ul className="footer-links">
                 <li>
-                  <Link href="/survey-study">Survey / Study</Link>
+                  <Link href="/">Home</Link>
                 </li>
 
                 <li>
-                  <Link href="/video">Videos</Link>
+                  <Link href="/about">About Us</Link>
                 </li>
 
                 <li>
-                  <Link href="https://ciodialogues.com/index.php/category/events/bespoke/">
-                    Bespoke Events
-                  </Link>
+                  <Link href="/services">Services</Link>
                 </li>
 
                 <li>
-                  <Link href="/digital-marketing">Digital Marketing</Link>
+                  <Link href="/portfolio">Portfolio</Link>
                 </li>
-              </ul>
-            </div>
 
-            {/* COLUMN 3 */}
-            <div className="footer-widget">
-              <h4 className="footer-title">Resources</h4>
+                {/* <li>
+                  <Link href="/faq">FAQ</Link>
+                </li> */}
 
-              <ul className="footer-links">
                 <li>
                   <Link href="/#contact-section">Contact Us</Link>
                 </li>
-
-                <li>
-                  <Link href="/blog">Blogs</Link>
-                </li>
-
-                {/* <li>
-                  <Link href="/register">Registration</Link>
-                </li> */}
-
-                {/* <li>
-                  <Link href="/nominate">Nominate</Link>
-                </li> */}
               </ul>
             </div>
 
-            {/* COLUMN 4 */}
+            {/* COLUMN 3 — OUR SERVICES */}
             <div className="footer-widget">
-              <h4 className="footer-title">Subscribe</h4>
+              <h4 className="footer-title">Our Services</h4>
 
-              <form className="footer-subscribe" onSubmit={handleSubscribe}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="footer-input"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  disabled={isLoading}
-                  required
-                />
+              <ul className="footer-links">
+                <li>
+                  <Link href="/services/cooperative-societies">Cooperative Societies</Link>
+                </li>
 
-                <button
-                  type="submit"
-                  className="footer-submit"
-                  aria-label="Subscribe"
-                  disabled={isLoading}
-                >
-                  <Send size={18} />
-                </button>
-              </form>
-              {/* POPUP NOTIFICATION */}
-              {popupMessage ? (
-                <div className="subscribe-popup" role="status" aria-live="polite">
-                  <span className="subscribe-popup-dot" aria-hidden="true" />
-                  <p>{popupMessage}</p>
-                  <button
-                    type="button"
-                    onClick={() => setPopupMessage(null)}
-                    aria-label="Close message"
-                  >
-                    ×
-                  </button>
+                <li>
+                  <Link href="/services/nbfc-corporate-setup">NBFC &amp; Corporate Setup</Link>
+                </li>
+
+                <li>
+                  <Link href="/services/agricultural-support">Agricultural Support</Link>
+                </li>
+
+                <li>
+                  <Link href="/services/compliance-advisory">Compliance &amp; Advisory</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* COLUMN 4 — OUR OFFICE */}
+            <div className="footer-widget">
+              <h4 className="footer-title">Our Office</h4>
+
+              <div className="footer-office">
+                <div className="footer-office-item">
+                  <span className="footer-office-icon">
+                    <MapPin size={15} />
+                  </span>
+
+                  <p className="footer-office-text">
+                    Platinum 9, 4th Floor, A/20, No. 52/5, Sr.No. 1, Pashan - Sus Rd, Near Audi
+                    Showroom, Baner, Pune, Maharashtra 411045
+                  </p>
                 </div>
-              ) : null}
+                <br />
+                <br />
 
-              <h4>
-                <strong>Office Address</strong>
-              </h4>
-              <p className="footer-description">
-                Units Nos. 3037 – A1 Wing, 3rd Floor, Oberoi Garden Estate, Near Chandivali Studio,
-                Andheri (East), Mumbai – 400072, INDIA
-              </p>
+                <a href="tel:+919588686363" className="footer-office-item">
+                  <span className="footer-office-icon">
+                    <Phone size={15} />
+                  </span>
 
-              {/* <label className="footer-checkbox">
-                <input type="checkbox" />
+                  <span className="footer-office-text">+91-9588686363</span>
+                </a>
+              </div>
 
-                <span>
-                  I agree to the{' '}
-                  <Link href="/" className="footer-terms">
-                    Terms & Conditions
-                  </Link>
-                </span>
-              </label> */}
+              {/* Original subscribe form + email + socials kept for reference — see commented block above */}
             </div>
           </div>
         </div>
       </div>
 
       {/* FOOTER BOTTOM */}
-      <div className="footer-bottom">
+      {/* <div className="footer-bottom">
         <div className="footer-container footer-bottom-wrapper">
-          {/* CONTACT */}
-          <div className="footer-contact">
-            <a href="tel:+917506035537" className="footer-contact-item">
-              <span className="footer-contact-icon">
-                <Phone size={15} />
-              </span>
-
-              <span className="footer-contact-text">+91 22 4608 0974</span>
-            </a>
-
-            <a
-              href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=contact@core-mediagroup.com"
-              className="footer-contact-item"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="footer-contact-icon">
-                <Mail size={15} />
-              </span>
-
-              <span className="footer-contact-text">contact@core-mediagroup.com</span>
-            </a>
+          <div className="footer-copy">
+            © 2024 <Link href="/">Vishwasai Consultancy LLP</Link>. All Rights Reserved.
           </div>
-
-          {/* SOCIAL */}
-          <div className="footer-socials">
-            <a
-              href="https://www.facebook.com/coremediaindia/"
-              aria-label="Facebook"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebookF />
-            </a>
-
-            <a
-              href="https://www.instagram.com/core_media_/"
-              aria-label="Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-            </a>
-
-            {/* <a
-              href="https://x.com/CIOChoice"
-              aria-label="Twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaXTwitter />
-            </a> */}
-
-            <a
-              href="https://www.linkedin.com/company/core-mediagroup/"
-              aria-label="LinkedIn"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedinIn />
-            </a>
-
-            <a href="https://www.youtube.com/@coremedia228" aria-label="YouTube">
-              <FaYoutube />
-            </a>
-          </div>
-
-          {/* COPYRIGHT */}
-          <div className="footer-copy">© 2026 CORE Media. All Rights Reserved.</div>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 }

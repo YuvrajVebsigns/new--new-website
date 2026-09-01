@@ -3,18 +3,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ArrowUpRight, Heart, MessageCircle } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 // import BlogCommentsPanel from '@/components/BlogCommentsPanel';
-import {
-  fetchWebsiteBlogs,
-  submitWebsiteBlogLike,
-  type WebsiteBlogItem,
-} from '@/services/blogs.service';
+import { fetchWebsiteBlogs, type WebsiteBlogItem } from '@/services/blogs.service';
 
 function getBlogCategory(blog: WebsiteBlogItem) {
   return blog.websites?.[0]?.name || blog.tags?.[0] || 'Blog';
+}
+
+function getBlogDescription(blog: WebsiteBlogItem) {
+  return blog.excerpt || blog.seo?.metaDescription || 'Read the latest insights from our team.';
+}
+
+const BLOG_FALLBACK_IMAGE = '/assets/blogs/p1.jpg';
+
+function getBlogDate(blog: WebsiteBlogItem) {
+  if (!blog.publishedAt) return '';
+
+  const date = new Date(blog.publishedAt);
+  if (Number.isNaN(date.getTime())) return '';
+
+  return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 }
 
 function getBlogImage(blog: WebsiteBlogItem): string {
@@ -22,19 +33,13 @@ function getBlogImage(blog: WebsiteBlogItem): string {
   if (blog.featureImage?.original) return blog.featureImage.original;
   if (blog.seo?.ogImage?.original) return blog.seo.ogImage.original;
   if (blog.seo?.ogImage?.large) return blog.seo.ogImage.large;
-  return '/assets/blogs/blog-1.png';
+  return BLOG_FALLBACK_IMAGE;
 }
-
-const BLOG_FALLBACK_IMAGE = '/assets/blogs/blog-3.png';
 
 export default function BlogsSection() {
   const router = useRouter();
   const [blogs, setBlogs] = useState<WebsiteBlogItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [likedBlogs, setLikedBlogs] = useState<Set<string>>(new Set());
-
-  const LIKED_KEY = 'likedBlogs';
-
   const blogRefs = [
     useScrollAnimation<HTMLDivElement>({
       animationClass: 'animate-fade-in-left',
@@ -55,120 +60,6 @@ export default function BlogsSection() {
       once: false,
     }),
   ];
-
-  useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(LIKED_KEY);
-      if (!raw) return;
-
-      const arr = JSON.parse(raw);
-      if (Array.isArray(arr)) {
-        setLikedBlogs(new Set(arr.map(String)));
-      }
-    } catch {
-      setLikedBlogs(new Set());
-    }
-  }, []);
-
-  function saveLikedBlogs(next: Set<string>) {
-    try {
-      window.localStorage.setItem(LIKED_KEY, JSON.stringify(Array.from(next)));
-    } catch {
-      // ignore
-    }
-  }
-
-  function addLikedBlog(id: string | number) {
-    setLikedBlogs((prev) => {
-      const next = new Set(prev);
-      next.add(String(id));
-      saveLikedBlogs(next);
-      return next;
-    });
-  }
-
-  function removeLikedBlog(id: string | number) {
-    setLikedBlogs((prev) => {
-      const next = new Set(prev);
-      next.delete(String(id));
-      saveLikedBlogs(next);
-      return next;
-    });
-  }
-
-  function getLikesCount(blog: WebsiteBlogItem) {
-    return typeof blog.engagement?.likes === 'number' && blog.engagement.likes > 0
-      ? blog.engagement.likes
-      : 0;
-  }
-
-  function getCommentsCount(blog: WebsiteBlogItem) {
-    return typeof blog.engagement?.commentsCount === 'number' ? blog.engagement.commentsCount : 0;
-  }
-
-  async function handleLikeClick(e: React.MouseEvent<HTMLButtonElement>, blogId?: string) {
-    e.stopPropagation();
-    e.preventDefault();
-
-    if (!blogId) return;
-
-    const wasLiked = likedBlogs.has(String(blogId));
-
-    if (wasLiked) {
-      setBlogs((prev) =>
-        prev.map((blog) =>
-          blog.id === blogId
-            ? {
-                ...blog,
-                engagement: {
-                  ...blog.engagement,
-                  likes: Math.max(0, (blog.engagement?.likes ?? 0) - 1),
-                },
-              }
-            : blog,
-        ),
-      );
-
-      removeLikedBlog(blogId);
-      return;
-    }
-
-    setBlogs((prev) =>
-      prev.map((blog) =>
-        blog.id === blogId
-          ? {
-              ...blog,
-              engagement: {
-                ...blog.engagement,
-                likes: (blog.engagement?.likes ?? 0) + 1,
-              },
-            }
-          : blog,
-      ),
-    );
-
-    addLikedBlog(blogId);
-
-    try {
-      await submitWebsiteBlogLike(blogId);
-    } catch {
-      setBlogs((prev) =>
-        prev.map((blog) =>
-          blog.id === blogId
-            ? {
-                ...blog,
-                engagement: {
-                  ...blog.engagement,
-                  likes: Math.max(0, (blog.engagement?.likes ?? 1) - 1),
-                },
-              }
-            : blog,
-        ),
-      );
-
-      removeLikedBlog(blogId);
-    }
-  }
 
   useEffect(() => {
     let isMounted = true;
@@ -200,19 +91,11 @@ export default function BlogsSection() {
     <section className="blogs-section">
       <div className="blogs-container">
         <div className="blogs-heading">
-          <span className="blogs-subtitle">
-            <Image
-              src="/assets/icon.png"
-              alt="About Us"
-              width={22}
-              height={22}
-              className="expertise-label-icon"
-            />
-            <span className="blogs-subtitle-text">BLOGS</span>
-          </span>
-          {/* <h2 className="blogs-title">
-            Our <span>Blogs</span>
-          </h2> */}
+          <h2 className="blogs-title">Latest from Our Blog</h2>
+
+          <Link href="/blog" className="blogs-view-all">
+            View All <ArrowUpRight size={18} />
+          </Link>
         </div>
 
         <div className="blogs-grid">
@@ -223,8 +106,6 @@ export default function BlogsSection() {
           ) : null}
 
           {blogs.map((blog, index) => {
-            const liked = likedBlogs.has(String(blog.id));
-
             return (
               <div className="blog-card" key={String(blog.id)} ref={blogRefs[index]}>
                 <div
@@ -257,53 +138,23 @@ export default function BlogsSection() {
                 <div className="blog-content">
                   <div className="blog-meta">
                     <span className="blog-category">{getBlogCategory(blog)}</span>
+                    {getBlogDate(blog) ? <span>{getBlogDate(blog)}</span> : null}
                   </div>
 
                   <h4 className="blog-heading">{blog.title}</h4>
 
+                  <p className="blog-description">{getBlogDescription(blog)}</p>
+
                   <div className="blogpage-footer">
                     <Link href={`/blog/${blog.slug}`} className="blog-readmore">
                       <span className="blog-readmore-text">Read More</span>
-                      <span className="blog-arrow" aria-hidden="true">
-                        <ArrowUpRight size={16} />
-                      </span>
+                      <ArrowUpRight size={17} aria-hidden="true" />
                     </Link>
-
-                    <span className="blog-engagement" aria-label="Blog engagement">
-                      <button
-                        type="button"
-                        className={`blog-engagement-item ${liked ? 'liked' : ''}`}
-                        aria-label={`${getLikesCount(blog)} likes`}
-                        onClick={(e) => handleLikeClick(e, blog.id)}
-                        style={liked ? { color: '#e53935' } : undefined}
-                      >
-                        <Heart size={14} fill={liked ? '#e53935' : 'none'} />
-                        <span>{getLikesCount(blog)}</span>
-                      </button>
-
-                      <span
-                        className="blog-engagement-item"
-                        aria-label={`${getCommentsCount(blog)} comments`}
-                      >
-                        <MessageCircle size={14} />
-                        <span>{getCommentsCount(blog)}</span>
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        <div className="blogs-more">
-          <Link href="/blog" className="blogs-more-btn">
-            <span>More Blogs </span>
-
-            <span className="blogs-more-icon">
-              <ArrowUpRight size={16} />
-            </span>
-          </Link>
         </div>
       </div>
     </section>

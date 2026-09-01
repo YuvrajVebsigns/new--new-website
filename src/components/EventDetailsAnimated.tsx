@@ -65,6 +65,7 @@ export default function EventDetailsAnimated({
             fill
             priority
             className="event-details-image"
+            fallbackSrc="/assets/blogs/p1.jpg"
           />
         </div>
 

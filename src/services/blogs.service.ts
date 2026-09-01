@@ -1,4 +1,12 @@
 import { API_ENDPOINTS } from '@/constants/api';
+import {
+  buildWebsiteAuthHeaders,
+  clearWebsiteAuth,
+  ensureWebsiteAuth as ensureWebsiteAuthHelper,
+  getApiErrorStatus as getApiErrorStatusHelper,
+  getWebsiteDomain,
+  readStoredWebsiteAuth as readStoredWebsiteAuthHelper,
+} from '@/lib/website-auth';
 
 export interface WebsiteBlogWebsite {
   name: string;
@@ -654,6 +662,112 @@ function buildFallbackResponse(page = 1, limit = 10) {
   } satisfies WebsiteBlogsResponse;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function extractBlogItems(response: unknown): WebsiteBlogItem[] {
+  if (Array.isArray(response)) {
+    return response as WebsiteBlogItem[];
+  }
+
+  if (!isRecord(response)) return [];
+
+  const directData = response.data;
+  if (Array.isArray(directData)) return directData as WebsiteBlogItem[];
+
+  if (isRecord(directData)) {
+    const nested = directData.data ?? directData.items ?? directData.results ?? directData.blogs;
+    if (Array.isArray(nested)) return nested as WebsiteBlogItem[];
+  }
+
+  return ((Array.isArray(response.items) ? response.items : []) ||
+    (Array.isArray(response.results) ? response.results : []) ||
+    (Array.isArray(response.blogs) ? response.blogs : []) ||
+    []) as WebsiteBlogItem[];
+}
+
+function extractBlogMeta(response: unknown) {
+  if (!isRecord(response)) return undefined;
+
+  const meta =
+    isRecord(response.data) && isRecord(response.data.meta)
+      ? response.data.meta
+      : isRecord(response.meta)
+        ? response.meta
+        : undefined;
+
+  if (!meta) return undefined;
+
+  return {
+    total: Number(meta.total ?? 0),
+    page: Number(meta.page ?? 1),
+    limit: Number(meta.limit ?? 10),
+    totalPages: Number(meta.totalPages ?? 1),
+    hasNextPage: Boolean(meta.hasNextPage),
+    hasPreviousPage: Boolean(meta.hasPreviousPage),
+  };
+}
+
+function mapBlogItem(data: Record<string, unknown>): WebsiteBlogItem {
+  const featureImage = isRecord(data.featureImage)
+    ? (data.featureImage as Record<string, unknown>)
+    : undefined;
+
+  const seo = isRecord(data.seo) ? (data.seo as Record<string, unknown>) : undefined;
+
+  return {
+    id: String(data.id ?? data._id ?? data.slug ?? ''),
+    slug: String(data.slug ?? data.id ?? ''),
+    title: String(data.title ?? data.name ?? ''),
+    excerpt: typeof data.excerpt === 'string' ? data.excerpt : undefined,
+    featureImage: featureImage
+      ? {
+          large: String(featureImage.large ?? featureImage.original ?? ''),
+          medium: String(featureImage.medium ?? featureImage.large ?? ''),
+          small: String(featureImage.small ?? featureImage.medium ?? ''),
+          thumbnail: String(featureImage.thumbnail ?? featureImage.small ?? ''),
+          original: String(featureImage.original ?? featureImage.large ?? ''),
+        }
+      : undefined,
+    featureImageId: typeof data.featureImageId === 'string' ? data.featureImageId : null,
+    websites: Array.isArray(data.websites) ? (data.websites as WebsiteBlogWebsite[]) : [],
+    author: isRecord(data.author) ? (data.author as unknown as WebsiteBlogAuthor) : undefined,
+    isActive: typeof data.isActive === 'boolean' ? data.isActive : undefined,
+    tags: Array.isArray(data.tags) ? (data.tags as string[]) : undefined,
+    status: typeof data.status === 'string' ? data.status : undefined,
+    publishedAt: typeof data.publishedAt === 'string' ? data.publishedAt : undefined,
+    seo: seo
+      ? {
+          metaTitle: typeof seo.metaTitle === 'string' ? seo.metaTitle : undefined,
+          metaDescription:
+            typeof seo.metaDescription === 'string' ? seo.metaDescription : undefined,
+          keywords: Array.isArray(seo.keywords) ? (seo.keywords as string[]) : undefined,
+          ogImage: isRecord(seo.ogImage)
+            ? {
+                large: String(seo.ogImage.large ?? seo.ogImage.original ?? ''),
+                medium: String(seo.ogImage.medium ?? seo.ogImage.large ?? ''),
+                small: String(seo.ogImage.small ?? seo.ogImage.medium ?? ''),
+                thumbnail: String(seo.ogImage.thumbnail ?? seo.ogImage.small ?? ''),
+                original: String(seo.ogImage.original ?? seo.ogImage.large ?? ''),
+              }
+            : undefined,
+          ogImageId: typeof seo.ogImageId === 'string' ? seo.ogImageId : null,
+        }
+      : undefined,
+    engagement: isRecord(data.engagement)
+      ? {
+          likes: typeof data.engagement.likes === 'number' ? data.engagement.likes : undefined,
+          views: typeof data.engagement.views === 'number' ? data.engagement.views : undefined,
+          commentsCount:
+            typeof data.engagement.commentsCount === 'number'
+              ? data.engagement.commentsCount
+              : undefined,
+        }
+      : undefined,
+  };
+}
+
 export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
   const searchParams = new URLSearchParams({
     page: String(page),
@@ -666,7 +780,6 @@ export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
 
   const fallback = buildFallbackResponse(page, limit);
 
-  // If a search term is provided, filter the fallback data immediately
   if (search.trim()) {
     const searchValue = search.trim().toLowerCase();
     fallback.data.data = fallback.data.data.filter((item) =>
@@ -677,61 +790,96 @@ export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
     );
   }
 
-  // Try the real backend first. If it fails (network/404/etc), return fallback.
   try {
-    // Import here to avoid circulars in some bundlers
     const { apiFetch } = await import('@/services/apiFetch');
+    const domain = getWebsiteDomain();
+    let auth = readStoredWebsiteAuthHelper();
 
-    const domain = 'coremediagroup.com';
-    const auth = await ensureWebsiteAuth(domain);
-
-    const url = `/api/v1/website/blogs?${searchParams.toString()}`;
-
-    const headers: Record<string, string> = {};
-    if (auth?.token) headers['Authorization'] = `Bearer ${auth.token}`;
-    if (auth?.websiteId) headers['x-website-id'] = String(auth.websiteId);
-
-    try {
-      const response = await apiFetch<WebsiteBlogsResponse>(url, { requireAuth: false, headers });
-
-      if (response && response.success && response.data?.data) {
-        return response;
-      }
-    } catch (err: unknown) {
-      // If we get a 401 from the blogs endpoint, the website token may be missing/expired.
-      // Clear cached websiteAuth and retry once to obtain a fresh token.
-      const statusCode =
-        typeof err === 'object' && err !== null && 'statusCode' in err
-          ? Number((err as { statusCode?: unknown }).statusCode)
-          : typeof err === 'object' && err !== null && 'status' in err
-            ? Number((err as { status?: unknown }).status)
-            : undefined;
-
-      if (statusCode === 401 && typeof window !== 'undefined') {
-        try {
-          window.localStorage.removeItem('websiteAuth');
-          const freshAuth = await ensureWebsiteAuth(domain);
-          if (freshAuth?.token) {
-            const retryHeaders: Record<string, string> = {
-              Authorization: `Bearer ${freshAuth.token}`,
-              'x-website-id': String(freshAuth.websiteId),
-            };
-
-            const retryRes = await apiFetch<WebsiteBlogsResponse>(url, {
-              requireAuth: false,
-              headers: retryHeaders,
-            });
-            if (retryRes && retryRes.success && retryRes.data?.data) {
-              return retryRes;
-            }
-          }
-        } catch {
-          // ignore and let fallback proceed
-        }
+    if (!auth) {
+      try {
+        auth = await ensureWebsiteAuthHelper(domain);
+      } catch {
+        auth = null;
       }
     }
-  } catch (err) {
-    // Keep silent — fallback will be returned below
+
+    const url = `${API_ENDPOINTS.WEBSITE.BLOGS.BASE}?${searchParams.toString()}`;
+    const headers = auth ? buildWebsiteAuthHeaders(auth) : {};
+
+    const response = await apiFetch<unknown>(url, {
+      method: 'GET',
+      requireAuth: false,
+      headers,
+    });
+
+    const items = extractBlogItems(response);
+    if (items.length > 0 || isRecord(response)) {
+      const normalizedItems = items.map((item) =>
+        isRecord(item) ? mapBlogItem(item as Record<string, unknown>) : item,
+      );
+
+      return {
+        success: true,
+        message: 'Blogs fetched',
+        data: {
+          data: normalizedItems,
+          meta: extractBlogMeta(response) ?? {
+            total: normalizedItems.length,
+            page,
+            limit,
+            totalPages: 1,
+            hasNextPage: false,
+            hasPreviousPage: page > 1,
+          },
+        },
+      } satisfies WebsiteBlogsResponse;
+    }
+  } catch (err: unknown) {
+    const statusCode = getApiErrorStatusHelper(err);
+
+    if (statusCode === 401 && typeof window !== 'undefined') {
+      try {
+        clearWebsiteAuth();
+        const freshAuth = await ensureWebsiteAuthHelper(getWebsiteDomain());
+        if (!freshAuth) return fallback;
+
+        const { apiFetch } = await import('@/services/apiFetch');
+        const retryHeaders = buildWebsiteAuthHeaders(freshAuth);
+        const retryResponse = await apiFetch<unknown>(
+          `${API_ENDPOINTS.WEBSITE.BLOGS.BASE}?${searchParams.toString()}`,
+          {
+            method: 'GET',
+            requireAuth: false,
+            headers: retryHeaders,
+          },
+        );
+
+        const retryItems = extractBlogItems(retryResponse);
+        if (retryItems.length > 0 || isRecord(retryResponse)) {
+          const normalized = retryItems.map((item) =>
+            isRecord(item) ? mapBlogItem(item as Record<string, unknown>) : item,
+          );
+
+          return {
+            success: true,
+            message: 'Blogs fetched',
+            data: {
+              data: normalized,
+              meta: extractBlogMeta(retryResponse) ?? {
+                total: normalized.length,
+                page,
+                limit,
+                totalPages: 1,
+                hasNextPage: false,
+                hasPreviousPage: page > 1,
+              },
+            },
+          } satisfies WebsiteBlogsResponse;
+        }
+      } catch {
+        // fallback below
+      }
+    }
   }
 
   return fallback;
@@ -743,46 +891,61 @@ export async function fetchWebsiteBlogBySlug(idOrSlug: string) {
   if (!slug) return null;
 
   const { apiFetch } = await import('@/services/apiFetch');
-  const domain = 'coremediagroup.com';
-  const auth = await ensureWebsiteAuth(domain);
+  const domain = getWebsiteDomain();
+  let auth = readStoredWebsiteAuthHelper();
 
-  const headers: Record<string, string> = {};
-  if (auth?.token) headers.Authorization = `Bearer ${auth.token}`;
-  if (auth?.websiteId) headers['x-website-id'] = auth.websiteId;
+  if (!auth) {
+    try {
+      auth = await ensureWebsiteAuthHelper(domain);
+    } catch {
+      auth = null;
+    }
+  }
 
-  const endpoint = `/api/v1/website/blogs/${encodeURIComponent(slug)}`;
+  const headers = auth ? buildWebsiteAuthHeaders(auth) : {};
+  const endpoint = API_ENDPOINTS.WEBSITE.BLOGS.BY_ID(slug);
 
   try {
-    const response = await apiFetch<WebsiteBlogDetailResponse>(endpoint, {
+    const response = await apiFetch<unknown>(endpoint, {
       requireAuth: false,
       headers,
     });
 
-    if (response?.success && response.data) {
-      return response.data;
+    const data = isRecord(response)
+      ? isRecord(response.data) && response.data.data
+        ? response.data.data
+        : (response.data ?? response)
+      : null;
+
+    if (data && isRecord(data)) {
+      return mapBlogItem(data as Record<string, unknown>);
     }
   } catch (error: unknown) {
-    const statusCode = getApiErrorStatus(error);
+    const statusCode = getApiErrorStatusHelper(error);
 
     if (statusCode === 401 && typeof window !== 'undefined') {
-      window.localStorage.removeItem('websiteAuth');
+      try {
+        clearWebsiteAuth();
+        const freshAuth = await ensureWebsiteAuthHelper(domain);
+        if (!freshAuth) return null;
 
-      const freshAuth = await ensureWebsiteAuth(domain);
-
-      if (freshAuth?.token) {
-        const retryHeaders: Record<string, string> = {
-          Authorization: `Bearer ${freshAuth.token}`,
-          'x-website-id': freshAuth.websiteId,
-        };
-
-        const retryResponse = await apiFetch<WebsiteBlogDetailResponse>(endpoint, {
+        const retryHeaders = buildWebsiteAuthHeaders(freshAuth);
+        const retryResponse = await apiFetch<unknown>(endpoint, {
           requireAuth: false,
           headers: retryHeaders,
         });
 
-        if (retryResponse?.success && retryResponse.data) {
-          return retryResponse.data;
+        const retryData = isRecord(retryResponse)
+          ? isRecord(retryResponse.data) && retryResponse.data.data
+            ? retryResponse.data.data
+            : (retryResponse.data ?? retryResponse)
+          : null;
+
+        if (retryData && isRecord(retryData)) {
+          return mapBlogItem(retryData as Record<string, unknown>);
         }
+      } catch {
+        // fallback below
       }
     }
   }

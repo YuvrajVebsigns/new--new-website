@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { Bot, ChevronLeft, ChevronRight, MessageCircle, Sparkles, X } from 'lucide-react';
-import { fetchChatbotFaqs, fetchChatbotImage } from '@/services/bot.service';
+import { fetchChatbotFaqs } from '@/services/bot.service';
 
 type ChatMessage = {
   id: string;
@@ -15,7 +15,7 @@ const INITIAL_MESSAGES: ChatMessage[] = [
   {
     id: 'welcome-message',
     role: 'bot',
-    text: 'Welcome to CORE Media! How can we help you today?',
+    text: 'Welcome to Vishwasai Consultancy! How can we help you today?',
   },
 ];
 
@@ -34,13 +34,13 @@ type BotApiResponse = {
 
 const SUGGESTIONS = [
   'Which industries do you serve?',
-  'Why should I partner with CORE Media?',
+  'Why should I partner with Vishwasai Consultancy?',
   'How do I stay updated on your events?',
-  'How can I contact CORE Media?',
+  'How can I contact Vishwasai Consultancy?',
   'How can I participate in your events?',
-  'Who attends CORE Media events?',
+  'Who attends Vishwasai Consultancy events?',
   'How can I sponsor an event?',
-  'What is CORE Media?',
+  'What is Vishwasai Consultancy?',
   'Do you offer Account-Based Marketing (ABM)?',
   'Can I request a proposal?',
 ];
@@ -59,7 +59,6 @@ export default function BotIcon() {
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [questionItems, setQuestionItems] = useState<QuestionItem[]>([]);
-  const [botImageUrl, setBotImageUrl] = useState<string | null>(null);
   const [previousInteractionId, setPreviousInteractionId] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [hasUnreadMessage, setHasUnreadMessage] = useState(false);
@@ -120,16 +119,11 @@ export default function BotIcon() {
   useEffect(() => {
     const loadBotResources = async () => {
       try {
-        const [questionsData, imageUrl] = await Promise.all([
-          fetchChatbotFaqs(),
-          fetchChatbotImage(),
-        ]);
+        const questionsData = await fetchChatbotFaqs();
 
         setQuestionItems(Array.isArray(questionsData) ? questionsData : []);
-        setBotImageUrl(typeof imageUrl === 'string' ? imageUrl : null);
       } catch {
         setQuestionItems([]);
-        setBotImageUrl(null);
       }
     };
 
@@ -188,7 +182,7 @@ export default function BotIcon() {
       const botText =
         data.reply ||
         data.error ||
-        'Sorry, I could not answer that. Please contact the CORE Media team.';
+        'Sorry, I could not answer that. Please contact the Vishwasai Consultancy team.';
 
       setMessages((currentMessages) => [
         ...currentMessages,
@@ -243,29 +237,25 @@ export default function BotIcon() {
   return (
     <div className="wrapper">
       {open && (
-        <section className="panel" aria-label="CORE Media chatbot">
+        <section className="panel" aria-label="Vishwasai Consultancy chatbot">
           <div className="header">
             <div className="headerGlow" />
 
             <div className="headerContent">
               <div className="headerInformation">
                 <div className="avatar">
-                  {botImageUrl ? (
-                    <Image
-                      src={botImageUrl}
-                      alt="CORE Media Assistant"
-                      width={36}
-                      height={36}
-                      className="assistant-icon"
-                    />
-                  ) : (
-                    <Bot size={24} />
-                  )}
+                  <Image
+                    src="/assets/vishwasai/Vlogo-light.png"
+                    alt="Vishwasai Consultancy Assistant"
+                    width={36}
+                    height={36}
+                    className="assistant-icon"
+                  />
                 </div>
 
                 <div className="headerText">
                   <div className="titleRow">
-                    <p className="title">CORE Media Assistant</p>
+                    <p className="title">Vishwasai Assistant</p>
 
                     <Sparkles className="sparkle" />
                   </div>
@@ -315,17 +305,13 @@ export default function BotIcon() {
               {isSending && (
                 <div className="messageRow botRow">
                   <div className="smallAvatar">
-                    {botImageUrl ? (
-                      <Image
-                        src={botImageUrl}
-                        alt="CORE Media Assistant"
-                        width={18}
-                        height={18}
-                        className="assistant-icon-small"
-                      />
-                    ) : (
-                      <Bot size={18} />
-                    )}
+                    <Image
+                      src="/assets/vishwasai/Vlogo-light.png"
+                      alt="Vishwasai Consultancy Assistant"
+                      width={18}
+                      height={18}
+                      className="assistant-icon-small"
+                    />
                   </div>
 
                   <div className="typingIndicator">
@@ -401,7 +387,7 @@ export default function BotIcon() {
                   type="text"
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
-                  placeholder="Ask about CORE Media..."
+                  placeholder="Ask about Vishwasai Consultancy..."
                   maxLength={500}
                   disabled={isSending}
                   autoComplete="off"

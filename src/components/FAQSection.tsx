@@ -20,24 +20,24 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: 'What does CORE Media specialize in?',
+      question: 'What does Vishwasai specialize in?',
       answer:
-        'Delivering B2B technology events, marketing solutions, and executive engagement platforms.',
+        'Vishwasai specializes in cooperative finance, agriculture support, funding advisory, business structuring, and sustainable growth planning for institutions and organizations.',
     },
     {
-      question: 'What industries does CORE Media serve?',
+      question: 'Which sectors does Vishwasai support?',
       answer:
-        'Technology, BFSI, manufacturing, healthcare, retail, telecom, and enterprise sectors.',
+        'We support cooperative institutions, agricultural ecosystems, financial societies, rural enterprises, and organizations seeking structured business and funding solutions.',
     },
     {
-      question: 'How can my organization partner with CORE Media?',
+      question: 'How can an organization work with Vishwasai?',
       answer:
-        'Collaborate through sponsorships, speaking opportunities, campaigns, and strategic partnerships.',
+        'Organizations can collaborate with Vishwasai for strategic guidance, compliance support, cooperative structuring, business planning, and customized advisory solutions based on their objectives.',
     },
     {
-      question: 'What are CORE Media flagship events?',
+      question: 'Why is Vishwasai relevant for cooperative and agricultural growth?',
       answer:
-        'CIO CHOICE India (January), CIO CHOICE MEA (January), CIO CHOICE ASEAN (February), Data Center & Cloud AI World (May), CIO PowerList India (June), BFSI TechWorld (August), CIO PowerList MEA (September), CIO CROWN (October), and CIO PowerList SEA (November)',
+        'Vishwasai brings practical, sector-focused expertise to help organizations navigate funding, governance, compliance, and long-term sustainability in cooperative and rural development landscapes.',
     },
   ];
 
