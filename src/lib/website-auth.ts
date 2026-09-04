@@ -35,18 +35,36 @@ type WebsiteTokenResponse = {
 
 /** Domain registered in the backend for this website (must match admin website). */
 export function getWebsiteDomain(): string {
-  if (process.env.NEXT_PUBLIC_WEBSITE_DOMAIN) {
-    return process.env.NEXT_PUBLIC_WEBSITE_DOMAIN;
+  const configuredDomain = process.env.NEXT_PUBLIC_WEBSITE_DOMAIN;
+
+  if (configuredDomain) {
+    return normalizeWebsiteDomain(configuredDomain);
   }
 
   if (typeof window !== 'undefined') {
     const host = window.location.hostname.replace(/^www\./, '');
     if (host && host !== 'localhost' && host !== '127.0.0.1') {
-      return host;
+      return normalizeWebsiteDomain(host);
     }
   }
 
   return 'core-mediagroup.com';
+}
+
+function normalizeWebsiteDomain(value: string): string {
+  const trimmed = value.trim();
+
+  try {
+    return new URL(trimmed.includes('://') ? trimmed : `https://${trimmed}`).hostname.replace(
+      /^www\./,
+      '',
+    );
+  } catch {
+    return trimmed
+      .replace(/^https?:\/\//, '')
+      .replace(/\/.*$/, '')
+      .replace(/^www\./, '');
+  }
 }
 
 export function readStoredWebsiteAuth(): WebsiteAuth | null {

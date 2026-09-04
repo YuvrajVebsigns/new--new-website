@@ -16305,13 +16305,15 @@ main {
 
 .contact-city-image {
   position: relative;
-  height: 245px;
+  height: 330px;
   overflow: hidden;
   border-radius: 14px;
+  background: #062d82;
 }
 
 .contact-city-image img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .contact-map-area {
@@ -16397,7 +16399,7 @@ main {
   }
 
   .contact-city-image {
-    height: 260px;
+    height: 300px;
   }
 }
 
@@ -23075,8 +23077,8 @@ s .dialogues-badge-mark {
   box-shadow: 0 12px 35px rgba(30, 58, 138, 0.05);
   backdrop-filter: blur(10px);
 
-  opacity: 0;
-  transform: translateY(38px);
+  opacity: 1;
+  transform: translateY(0);
 
   transition:
     opacity 0.75s ease,

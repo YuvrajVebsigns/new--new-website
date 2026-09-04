@@ -796,15 +796,11 @@ export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
     let auth = readStoredWebsiteAuthHelper();
 
     if (!auth) {
-      try {
-        auth = await ensureWebsiteAuthHelper(domain);
-      } catch {
-        auth = null;
-      }
+      auth = await ensureWebsiteAuthHelper(domain);
     }
 
     const url = `${API_ENDPOINTS.WEBSITE.BLOGS.BASE}?${searchParams.toString()}`;
-    const headers = auth ? buildWebsiteAuthHeaders(auth) : {};
+    const headers = buildWebsiteAuthHeaders(auth);
 
     const response = await apiFetch<unknown>(url, {
       method: 'GET',
@@ -841,7 +837,9 @@ export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
       try {
         clearWebsiteAuth();
         const freshAuth = await ensureWebsiteAuthHelper(getWebsiteDomain());
-        if (!freshAuth) return fallback;
+        if (!freshAuth) {
+          throw new Error('Could not obtain website authentication for blogs.');
+        }
 
         const { apiFetch } = await import('@/services/apiFetch');
         const retryHeaders = buildWebsiteAuthHeaders(freshAuth);
@@ -877,7 +875,7 @@ export async function fetchWebsiteBlogs(page = 1, limit = 10, search = '') {
           } satisfies WebsiteBlogsResponse;
         }
       } catch {
-        // fallback below
+        return fallback;
       }
     }
   }

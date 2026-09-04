@@ -100,6 +100,7 @@ export default function AboutUsPage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('about-text-visible');
+            observer.unobserve(entry.target);
           }
         });
       },
@@ -1172,9 +1173,9 @@ export default function AboutUsPage() {
 
           overflow: hidden;
 
-          opacity: 0;
+          opacity: 1;
 
-          transform: translateY(55px);
+          transform: translateY(0) perspective(1000px);
 
           transition:
             opacity 0.8s ease,
