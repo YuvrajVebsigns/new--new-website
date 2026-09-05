@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import Image from 'next/image';
 
 interface VideoItem {
@@ -14,8 +14,8 @@ interface VideoItem {
   videoUrl?: string;
 }
 
-export default function VideoDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function VideoDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const [video, setVideo] = useState<VideoItem | null>(null);
 
   useEffect(() => {

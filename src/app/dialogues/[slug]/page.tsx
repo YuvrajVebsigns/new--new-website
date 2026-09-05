@@ -87,7 +87,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 
 type ContentBlock = {
   type?: string;
@@ -129,8 +129,8 @@ async function getDialogueBySlug(slug: string): Promise<DialoguePage | null> {
   }
 }
 
-export default function DialogueDetail({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function DialogueDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
   const [dialogue, setDialogue] = useState<DialoguePage | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
