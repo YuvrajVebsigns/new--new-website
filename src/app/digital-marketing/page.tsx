@@ -38,7 +38,7 @@ export default function SocialMediaPage() {
               </p>
 
               <p>
-                At CORE Media, we help organizations create impactful social media strategies and
+                At vishwasai.in, we help organizations create impactful social media strategies and
                 campaigns that amplify their message, enhance audience engagement, and deliver
                 measurable results. Whether your goal is to increase brand awareness, generate
                 leads, promote an event, launch a product, or strengthen customer loyalty, our team

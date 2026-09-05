@@ -75,7 +75,7 @@ function extractFaqs(response: WebsiteBotPageResponse): QuestionItem[] {
 
 export async function fetchChatbotFaqs(
   slug = 'chatbot',
-  domain = 'coremediagroup.com',
+  domain = 'vishwasai.in',
 ): Promise<QuestionItem[]> {
   const auth = await ensureWebsiteAuth(domain);
   const headers = buildWebsiteAuthHeaders(auth);
@@ -91,7 +91,7 @@ export async function fetchChatbotFaqs(
 
 export async function fetchChatbotImage(
   slug = 'chatbot',
-  domain = 'coremediagroup.com',
+  domain = 'vishwasai.in',
 ): Promise<string> {
   const auth = await ensureWebsiteAuth(domain);
   const headers = buildWebsiteAuthHeaders(auth);

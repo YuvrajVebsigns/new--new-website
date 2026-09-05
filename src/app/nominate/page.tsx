@@ -240,7 +240,7 @@
 //           emails:
 //         </p>
 //         <ol>
-//           <li>To the CIO Power List (CORE Media) team, sharing the nomination details.</li>
+//           <li>To the CIO Power List (vishwasai.in) team, sharing the nomination details.</li>
 //           <li>To you, acknowledging and summarizing all your nominations.</li>
 //           <li>
 //             To each nominated CIO, informing them that they have been nominated by you for CIO Power
@@ -792,7 +792,7 @@ export default function NominatePage() {
         </p>
 
         <ol>
-          <li>To the CIO Power List (CORE Media) team, sharing the nomination details.</li>
+          <li>To the CIO Power List (vishwasai.in) team, sharing the nomination details.</li>
           <li>To you, acknowledging and summarizing all your nominations.</li>
           <li>
             To each nominated CIO, informing them that they have been nominated by you for CIO Power

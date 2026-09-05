@@ -40,12 +40,12 @@ export default function BespokeEventsPage() {
               </p>
 
               <p>
-                At CORE Media, we specialize in conceptualizing, planning, and executing high-impact
-                custom events that help organizations connect with the right audience and achieve
-                measurable business outcomes. Whether it is a focused executive workshop, an
-                industry roundtable, a large-format conference, or an annual flagship event, we
-                deliver every engagement with precision, professionalism, and a clear focus on your
-                objectives.
+                At vishwasai.in, we specialize in conceptualizing, planning, and executing
+                high-impact custom events that help organizations connect with the right audience
+                and achieve measurable business outcomes. Whether it is a focused executive
+                workshop, an industry roundtable, a large-format conference, or an annual flagship
+                event, we deliver every engagement with precision, professionalism, and a clear
+                focus on your objectives.
               </p>
 
               <p>

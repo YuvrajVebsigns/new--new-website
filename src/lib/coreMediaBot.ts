@@ -30,7 +30,7 @@ export const CORE_MEDIA_PAGES: CoreMediaPage[] = [
       'about',
       'about us',
       'company',
-      'core media',
+      'vishwasai',
       'vishwasai',
       'vishwasai consultancy',
       'founder',

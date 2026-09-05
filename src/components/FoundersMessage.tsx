@@ -45,7 +45,7 @@ export default function FoundersMessage() {
 
           {/* DESCRIPTION */}
           <p className="founder-description">
-            At CORE Media, our journey has always been driven by a simple belief—meaningful
+            At vishwasai.in, our journey has always been driven by a simple belief—meaningful
             connections create meaningful business outcomes.
             <Link href="/Founder-Message" className="founder-readmore-link">
               Read more...
@@ -55,7 +55,7 @@ export default function FoundersMessage() {
           {/* AUTHOR */}
           <div className="founder-author">
             <h3>Anoop Mathur</h3>
-            <span>Founder, CORE MEDIA</span>
+            <span>Founder, vishwasai.in</span>
           </div>
 
           {/* BUTTON */}

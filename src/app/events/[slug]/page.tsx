@@ -306,7 +306,7 @@ export default function EventDetailsPage() {
         'Event',
     ),
     author: String(
-      getEventField(event, 'organizer') ?? getEventField(event, 'author') ?? 'CORE Media',
+      getEventField(event, 'organizer') ?? getEventField(event, 'author') ?? 'vishwasai.in',
     ),
     date: formatEventDate(
       getEventField(event, 'startsAt') ??

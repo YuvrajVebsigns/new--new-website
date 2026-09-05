@@ -27,7 +27,7 @@ export default function SurveyStudyPage() {
               </p>
 
               <div className="survey-study-card">
-                <h3>CORE Media has expertise in delivering surveys that will:</h3>
+                <h3>vishwasai.in has expertise in delivering surveys that will:</h3>
 
                 <ul className="survey-study-list">
                   <li>

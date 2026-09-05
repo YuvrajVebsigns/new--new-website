@@ -120,7 +120,7 @@ export default function DownloadReportPage() {
         <br />
         <br />
 
-        <p className="download-report-brand">CORE MEDIA GROUP</p>
+        <p className="download-report-brand">vishwasai.in</p>
 
         <br />
         <Link href="/research-2020" className="download-report-back">

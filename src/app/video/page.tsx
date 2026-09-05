@@ -18,9 +18,9 @@ export default function VideoPage() {
         <p>
           Videos help you boost your online presence as well as overall marketing strategy, and help
           your brand connect with customers and gain an edge over the competition. However, you need
-          quality content to gain your customers’ attention. That’s where we come in. CORE Media has
-          an experienced and passionate in-house video production team that produces videos of the
-          highest quality.
+          quality content to gain your customers’ attention. That’s where we come in. vishwasai.in
+          has an experienced and passionate in-house video production team that produces videos of
+          the highest quality.
         </p>
 
         <p>We ensure all our video content is:</p>

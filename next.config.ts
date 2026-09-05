@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cioangelnetwork.com' },
-      { protocol: 'https', hostname: 'core-mediagroup.com' },
+      { protocol: 'https', hostname: 'vishwasai.in' },
       { protocol: 'https', hostname: 'mea.cio-choice.com' },
       { protocol: 'https', hostname: 'cxo-capital.com' },
       { protocol: 'https', hostname: 'ciocrown.com' },

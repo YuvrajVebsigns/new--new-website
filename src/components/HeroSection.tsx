@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div className="blog-hero-media">
         <Image
           src="/assets/blogs/vishwasai.png"
-          alt="CORE Media"
+          alt="vishwasai.in"
           fill
           priority
           className="blog-hero-image home-hero-image"

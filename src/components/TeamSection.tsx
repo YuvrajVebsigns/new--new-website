@@ -25,7 +25,7 @@ export default function TeamSection() {
     },
     {
       name: 'John Die',
-      role: 'Founder, CORE Media',
+      role: 'Founder, vishwasai.in',
       image: '/favicon.ico',
       linkedin: 'https://www.linkedin.com/in/mathuranoop',
     },

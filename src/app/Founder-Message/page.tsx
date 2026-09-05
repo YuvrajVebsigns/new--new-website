@@ -5,7 +5,7 @@
 // import { useEffect, useRef, useState } from 'react';
 
 // const founderMessage = [
-//   `At CORE Media, our journey has always been driven by a simple belief—meaningful connections create meaningful business outcomes. For over 14 years, we have been bringing together technology leaders, enterprises, innovators, and solution providers, creating platforms that inspire collaboration, recognize excellence, and accelerate business growth across the ICT ecosystem.`,
+//   `At vishwasai.in, our journey has always been driven by a simple belief—meaningful connections create meaningful business outcomes. For over 14 years, we have been bringing together technology leaders, enterprises, innovators, and solution providers, creating platforms that inspire collaboration, recognize excellence, and accelerate business growth across the ICT ecosystem.`,
 
 //   `Every brand, platform, and initiative we have built reflects our customer-first philosophy. From proprietary events and executive communities to bespoke marketing programs and digital engagement solutions, our focus has remained constant: helping our clients deliver the right message to the right audience through experiences that are relevant, engaging, and result-oriented.`,
 
@@ -15,7 +15,7 @@
 
 //   `As we continue to evolve, our commitment remains unwavering—to create ideas that matter, build communities that thrive, and empower businesses to connect, grow, and lead with confidence.`,
 
-//   `Partner with CORE Media, and together, let's connect the dots to create the future of business.`,
+//   `Partner with vishwasai.in, and together, let's connect the dots to create the future of business.`,
 // ];
 
 // export default function FounderMessagePage() {
@@ -120,7 +120,7 @@
 //                 <div className="founder-page-image-frame">
 //                   <Image
 //                     src="/assets/team/4.png"
-//                     alt="Anoop Mathur, Founder of CORE Media"
+//                     alt="Anoop Mathur, Founder of vishwasai.in"
 //                     fill
 //                     priority
 //                     sizes="(max-width: 950px) 90vw, 430px"
@@ -130,7 +130,7 @@
 //                 <br></br>
 
 //                 <div className="founder-page-details">
-//                   <p>Founder, CORE Media</p>
+//                   <p>Founder, vishwasai.in</p>
 //                   <h2>Anoop Mathur</h2>
 //                 </div>
 //               </div>
@@ -185,14 +185,14 @@
 
 //                 <footer className="founder-signature">
 //                   <strong>Anoop Mathur</strong>
-//                   <span>Founder, CORE Media</span>
+//                   <span>Founder, vishwasai.in</span>
 //                 </footer>
 //               </blockquote>
 
 //               {/* Page links */}
 //               <div className="founder-page-actions" data-reveal>
 //                 <Link href="/#contact-section" className="founder-primary-link">
-//                   Partner With CORE Media
+//                   Partner With vishwasai.in
 //                   <span aria-hidden="true">↗</span>
 //                 </Link>
 //               </div>
@@ -211,7 +211,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 
 const founderMessage = [
-  `At CORE Media, our journey has always been driven by a simple belief—meaningful connections create meaningful business outcomes. For over 14 years, we have been bringing together technology leaders, enterprises, innovators, and solution providers, creating platforms that inspire collaboration, recognize excellence, and accelerate business growth across the ICT ecosystem.`,
+  `At vishwasai.in, our journey has always been driven by a simple belief—meaningful connections create meaningful business outcomes. For over 14 years, we have been bringing together technology leaders, enterprises, innovators, and solution providers, creating platforms that inspire collaboration, recognize excellence, and accelerate business growth across the ICT ecosystem.`,
 
   `Every brand, platform, and initiative we have built reflects our customer-first philosophy. From proprietary events and executive communities to bespoke marketing programs and digital engagement solutions, our focus has remained constant: helping our clients deliver the right message to the right audience through experiences that are relevant, engaging, and result-oriented.`,
 
@@ -221,7 +221,7 @@ const founderMessage = [
 
   `As we continue to evolve, our commitment remains unwavering—to create ideas that matter, build communities that thrive, and empower businesses to connect, grow, and lead with confidence.`,
 
-  `Partner with CORE Media, and together, let's connect the dots to create the future of business.`,
+  `Partner with vishwasai.in, and together, let's connect the dots to create the future of business.`,
 ];
 
 export default function FounderMessagePage() {
@@ -317,7 +317,7 @@ export default function FounderMessagePage() {
                 <div className="founder-page-image-frame">
                   <Image
                     src="/assets/team/22.png"
-                    alt="Anoop Mathur, Founder of CORE Media"
+                    alt="Anoop Mathur, Founder of vishwasai.in"
                     fill
                     priority
                     sizes="(max-width: 950px) 90vw, 430px"
@@ -326,7 +326,7 @@ export default function FounderMessagePage() {
                 </div>
 
                 <div className="founder-page-details">
-                  <p>Founder, CORE Media</p>
+                  <p>Founder, vishwasai.in</p>
                   <h2>Anoop Mathur</h2>
                 </div>
               </div>
@@ -372,7 +372,7 @@ export default function FounderMessagePage() {
               {/* Page link */}
               <div className="founder-page-actions" data-reveal>
                 <Link href="/#contact-section" className="founder-primary-link">
-                  Partner With CORE Media
+                  Partner With vishwasai.in
                   <span aria-hidden="true">↗</span>
                 </Link>
               </div>

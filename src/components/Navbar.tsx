@@ -49,7 +49,7 @@
 //     <header className={`navbar ${mobileOpen ? 'mobile-open' : ''}`}>
 //       <div className="navbar-container">
 //         <Link href="/" className="navbar-logo" onClick={closeMobileMenu}>
-//           <Image src="/assets/logo/logo.png" alt="CORE Media" width={150} height={100} priority />
+//           <Image src="/assets/logo/logo.png" alt="vishwasai.in" width={150} height={100} priority />
 //         </Link>
 
 //         <nav className={`navbar-menu ${mobileOpen ? 'open' : ''}`}>
@@ -215,7 +215,7 @@ export default function Navbar() {
         <Link href="/" className="navbar-logo" onClick={closeMobileMenu}>
           <Image
             src="/assets/vishwasai/Vlogo-light.png"
-            alt="CORE Media"
+            alt="vishwasai.in"
             width={150}
             height={100}
             priority

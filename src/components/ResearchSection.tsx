@@ -6,11 +6,11 @@
 //   const researches = [
 //     {
 //       title: 'CIO Outlook 2021, COVID 19 – BUSINESS IMPACT PULSE REPORT',
-//       url: 'https://core-mediagroup.com/ciooutlook2021/',
+//       url: 'https://vishwasai.in/ciooutlook2021/',
 //     },
 //     {
 //       title: 'CIO Outlook 2020, COVID 19 – BUSINESS IMPACT PULSE REPORT',
-//       url: 'https://core-mediagroup.com/ciooutlook2020/',
+//       url: 'https://vishwasai.in/ciooutlook2020/',
 //     },
 //   ];
 

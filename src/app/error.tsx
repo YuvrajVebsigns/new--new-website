@@ -23,9 +23,9 @@ export default function ErrorPage({
       const body = encodeURIComponent(
         `Error: ${String(error?.message ?? 'Unknown')}\n\nURL: ${typeof window !== 'undefined' ? window.location.href : ''}`,
       );
-      return `mailto:support@core-mediagroup.com?subject=${subject}&body=${body}`;
+      return `mailto:support@vishwasai.in?subject=${subject}&body=${body}`;
     } catch (e) {
-      return 'mailto:support@core-mediagroup.com';
+      return 'mailto:support@vishwasai.in';
     }
   };
 

@@ -48,7 +48,7 @@ export function getWebsiteDomain(): string {
     }
   }
 
-  return 'core-mediagroup.com';
+  return 'vishwasai.in';
 }
 
 function normalizeWebsiteDomain(value: string): string {

@@ -163,7 +163,7 @@ export async function POST(request: Request) {
       suggestedLinks: getSuggestedLinks(message),
     });
   } catch (error) {
-    // console.error('CORE Media bot error:', error);
+    // console.error('vishwasai.in bot error:', error);
 
     const errorMessage = error instanceof Error ? error.message : 'Unknown Gemini API error';
 

@@ -332,8 +332,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd69',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -373,8 +373,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd6a',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -414,8 +414,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd6b',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -455,8 +455,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd6c',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -496,8 +496,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd6d',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -537,8 +537,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd70',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -572,8 +572,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
     featureImage: makeImageFromUrl('https://picsum.photos/seed/11/1200/630'),
     websites: [
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -590,8 +590,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
     seo: {
       metaTitle: 'Developing the Next Generation of Leadership',
       metaDescription:
-        'Read about Developing the Next Generation of Leadership on the official blog of CORE Media Group.',
-      keywords: ['media', 'tech', 'future', 'core media group'],
+        'Read about Developing the Next Generation of Leadership on the official blog of vishwasai.in.',
+      keywords: ['media', 'tech', 'future', 'vishwasai'],
       ogImage: makeImageFromUrl('https://picsum.photos/seed/11/1200/630'),
       ogImageId: null,
     },
@@ -613,8 +613,8 @@ const FALLBACK_WEBSITE_BLOGS: WebsiteBlogItem[] = [
         id: '6a0e1fb4957cec506662dd67',
       },
       {
-        name: 'CORE Media Group',
-        domain: 'https://coremediagroup.com',
+        name: 'vishwasai.in',
+        domain: 'https://vishwasai.in',
         logo: '',
         id: '6a0e1fb4957cec506662dd71',
       },
@@ -1070,7 +1070,7 @@ export async function submitWebsiteBlogComment(blogId: string, payload: SubmitBl
 export async function submitWebsiteBlogLike(blogId: string) {
   if (!blogId) throw new Error('Missing blog id');
 
-  const domain = 'coremediagroup.com';
+  const domain = 'vishwasai.in';
   const auth = await ensureWebsiteAuth(domain);
 
   const headers: Record<string, string> = {};

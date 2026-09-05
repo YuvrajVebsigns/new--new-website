@@ -9,19 +9,19 @@ const BOT_QUESTIONS = [
   },
   {
     id: 'q2',
-    question: 'How can I contact CORE Media?',
+    question: 'How can I contact vishwasai.in?',
     answer:
-      'You can contact CORE Media via the Contact page, email at contact@core-mediagroup.com, or phone at +91 7506035537.',
+      'You can contact vishwasai.in via the Contact page, email at contact@vishwasai.in, or phone at +91 7506035537.',
   },
   {
     id: 'q3',
-    question: 'What services does CORE Media offer?',
+    question: 'What services does vishwasai.in offer?',
     answer:
-      'CORE Media offers B2B marketing, executive events, ABM campaigns, research studies, and digital engagement solutions.',
+      'vishwasai.in offers B2B marketing, executive events, ABM campaigns, research studies, and digital engagement solutions.',
   },
   {
     id: 'q4',
-    question: 'Who attends CORE Media events?',
+    question: 'Who attends vishwasai.in events?',
     answer:
       'Our events typically bring together CIOs, CXOs, CISOs, IT leaders, founders, technology providers, and senior business decision-makers.',
   },
