@@ -98,38 +98,6 @@ export default function Brands() {
       role: 'Vishwasai',
       image: '/favicon.ico',
     },
-    {
-      heading: 'Vishwasai',
-      text: 'The Vishwasai team delivered strategic clarity and practical support at every step. Their expertise helped us address our challenges with a stronger, more sustainable direction for growth.',
-      name: 'Vishwasai Advisory',
-      writerName: 'Senior Consultant | Institutional Growth',
-      role: 'Vishwasai',
-      image: '/favicon.ico',
-    },
-    {
-      heading: 'Vishwasai',
-      text: 'We reached a more confident business position because of Vishwasai’s advisory support. Their guidance helped us focus on the right decisions, stronger governance, and long-term value creation.',
-      name: 'Vishwasai Advisory',
-      writerName: 'Director | Sector Development',
-      role: 'Vishwasai',
-      image: '/favicon.ico',
-    },
-    {
-      heading: 'Vishwasai',
-      text: 'Vishwasai understood both the business challenge and the institutional context behind it. That balance of strategic thinking and practical support made a significant impact on our progress.',
-      name: 'Vishwasai Advisory',
-      writerName: 'Leadership Team | Social Enterprise',
-      role: 'Vishwasai',
-      image: '/favicon.ico',
-    },
-    {
-      heading: 'Vishwasai',
-      text: 'The support we received from Vishwasai was deeply relevant to our mission and business priorities. Their ability to simplify complex processes while strengthening execution gave us real momentum.',
-      name: 'Vishwasai Advisory',
-      writerName: 'Founder | Agri & Finance Advisory',
-      role: 'Vishwasai',
-      image: '/favicon.ico',
-    },
   ];
 
   function DialogueCard({ item }: { item: (typeof testimonials)[number] }) {

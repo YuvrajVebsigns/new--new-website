@@ -1,68 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const videos = [
-    {
-      id: 1,
-      title: 'Netmagic DC5 BuildUp Film',
-      slug: 'showcase-reel-creative-campaigns',
-      category: 'Showreel',
-      author: 'vishwasai.in',
-      date: '10 MAY',
-      // image: '/assets/blogs/blog-1.webp',
-      videoUrl: 'https://www.youtube.com/embed/o4LM01aE1PQ',
-    },
-    {
-      id: 2,
-      title: 'Behind The Scenes: Production Day',
-      slug: 'behind-the-scenes-production-day',
-      category: 'BTS',
-      author: 'vishwasai.in',
-      date: '22 APR',
-      // image: '/assets/blogs/blog-3.webp',
-      videoUrl: 'https://www.youtube.com/embed/aQbU67vShTo',
-    },
-    {
-      id: 3,
-      title: 'Adstringo Launch Film',
-      slug: 'client-spotlight-launch-story',
-      category: 'Case Study',
-      author: 'vishwasai.in',
-      date: '01 MAR',
-      image: '/assets/blogs/blog-1.webp',
-      videoUrl: 'https://www.youtube.com/embed/t0G9AuwNJyI',
-    },
-    {
-      id: 4,
-      title: 'NetApp - SBI',
-      slug: 'studio-techniques-lighting-grip',
-      category: 'Tutorial',
-      author: 'vishwasai.in',
-      date: '15 FEB',
-      image: '/assets/blogs/blog-2.webp',
-      videoUrl: 'https://www.youtube.com/embed/-tW3ffpdTpE',
-    },
-    {
-      id: 5,
-      title: 'BSNL Dimension Data Global Cloud Exchange AV',
-      slug: 'creative-direction-concept-to-screen',
-      category: 'Case Study',
-      author: 'vishwasai.in',
-      date: '02 JAN',
-      image: '/assets/blogs/blog-3.webp',
-      videoUrl: 'https://www.youtube.com/embed/aQbU67vShTo',
-    },
-    {
-      id: 6,
-      title: 'CIOs singing the National Song - Vande Mataram',
-      slug: 'client-testimonial-campaign-results',
-      category: 'Testimonial',
-      author: 'vishwasai.in',
-      date: '28 DEC',
-      image: '/assets/blogs/blog-2.webp',
-      videoUrl: 'https://www.youtube.com/embed/hqLGiBrTOxU',
-    },
-  ];
+  const videos: unknown[] = [];
 
   return NextResponse.json(videos);
 }

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node -e \"require('fs').copyFileSync('.env.local','.env.development.local')\" && dotenv -e .env.local -- next dev",
     "dev:uat": "node -e \"require('fs').copyFileSync('.env.dev','.env.development.local')\" && dotenv -e .env.dev -- next dev",
-    "start": "dotenv -e .env.local -- next start",
+    "start": "next start",
     "lint": "eslint src --ext .ts,.tsx",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

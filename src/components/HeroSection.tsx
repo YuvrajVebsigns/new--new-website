@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import { ArrowDown } from 'lucide-react';
 import type { PointerEvent } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function HeroSection() {
+  const router = useRouter();
+
   const handleScroll = () => {
     window.scrollBy({
       top: window.innerHeight,
@@ -51,14 +54,33 @@ export default function HeroSection() {
         </div>
 
         <h1 className="hero-title">
-          Expert consultancy for co-operative agriculture and finance since 2009
+          <span className="hero-title-desktop">
+            Expert consultancy for co-operative agriculture and finance since 2009
+          </span>
+          <span className="hero-title-mobile">
+            Expert consultancy
+            <br />
+            for co-operative
+            <br />
+            agriculture and
+            <br />
+            finance since 2009
+          </span>
         </h1>
 
         <div className="hero-cta-row">
-          <button type="button" className="hero-primary-btn">
+          <button
+            type="button"
+            className="hero-primary-btn"
+            onClick={() => router.push('/#contact-section')}
+          >
             Get In Touch
           </button>
-          <button type="button" className="hero-secondary-btn">
+          <button
+            type="button"
+            className="hero-secondary-btn"
+            onClick={() => router.push('/services')}
+          >
             Explore Our Services
           </button>
         </div>
@@ -98,6 +120,10 @@ export default function HeroSection() {
           transition: all 0.25s ease;
         }
 
+        .hero-title-mobile {
+          display: none;
+        }
+
         .hero-primary-btn {
           border: none;
           background: #ffffff;
@@ -123,15 +149,32 @@ export default function HeroSection() {
         }
 
         @media (max-width: 640px) {
+          .hero-title-desktop {
+            display: none;
+          }
+
+          .hero-title-mobile {
+            display: inline;
+          }
+
           .hero-cta-row {
-            flex-direction: column;
-            align-items: stretch;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(8px);
           }
 
           .hero-primary-btn,
           .hero-secondary-btn {
-            width: 100%;
+            flex: 1 1 0;
+            width: auto;
             min-width: 0;
+            height: 40px;
+            padding: 0 8px;
+            font-size: 11px;
+            line-height: 1.1;
+            white-space: normal;
+            overflow: hidden;
           }
         }
       `}</style>

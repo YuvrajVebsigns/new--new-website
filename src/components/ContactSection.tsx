@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowUpRight, RefreshCw, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, MapPin, RefreshCw, ShieldCheck } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { submitWebsiteContact } from '@/services/contacts.service';
 
@@ -11,6 +11,13 @@ const SERVICE_OPTIONS = [
   'CIO Events & Conferences',
   'Brand Recognition',
   'Video Content',
+];
+
+const OFFICE_LOCATIONS = [
+  { name: 'Delhi', className: 'contact-location-delhi' },
+  { name: 'Ahilyanagar', className: 'contact-location-ahilyanagar' },
+  { name: 'Pune', className: 'contact-location-pune' },
+  { name: 'Mumbai', className: 'contact-location-mumbai' },
 ];
 
 const TURNSTILE_SCRIPT_SRC =
@@ -431,63 +438,23 @@ export default function ContactSection() {
   return (
     <section className="contact-section" id="contact-section">
       <div className="contact-container">
-        <div className="contact-details-area">
-          <div className="contact-details-list">
-            <div className="contact-detail-item">
-              {/* <span className="contact-detail-icon">
-                <MapPin size={15} />
-              </span> */}
-              {/* <div>
-                <strong>Vishwasai Consultancy LLP</strong>
-                <p>
-                  Platinum 9, 4th Floor, A/20, No. 52/5, Sr.No. 1, Pashan - Sus Rd, Near Audi
-                  Showroom, Baner, Pune, Maharashtra 411045
-                </p>
-              </div> */}
-            </div>
-
-            {/* <div className="contact-detail-item">
-              <span className="contact-detail-icon">
-                <Phone size={15} />
-              </span>
-              <div>
-                <strong>Phone</strong>
-                <p>+91-9588686363</p>
-              </div>
-            </div> */}
-
-            {/* <div className="contact-detail-item">
-              <span className="contact-detail-icon">
-                <Mail size={15} />
-              </span>
-              <div>
-                <strong>Email</strong>
-                <p>info@vishwasaiconsultancy.com</p>
-              </div>
-            </div> */}
-          </div>
-
-          {/* <div className="contact-action-links">
-            <a href="tel:+919588686363" className="contact-call-link">
-              Call Us
-            </a>
-            <a
-              href="https://wa.me/919588686363"
-              className="contact-whatsapp-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Phone size={13} /> WhatsApp
-            </a>
-          </div> */}
-
-          <div className="contact-city-image">
+        <div className="contact-map-area">
+          <div className="contact-city-image contact-location-map">
             <Image
               src="/assets/blogs/contact.png"
-              alt="Vishwasai contact map"
+              alt="Map showing Vishwasai locations in Delhi, Ahilyanagar, Pune, and Mumbai"
               fill
-              sizes="(max-width: 1000px) 100vw, 46vw"
+              sizes="(max-width: 1000px) 100vw, 560px"
             />
+
+            <div className="contact-location-list" aria-label="Our locations">
+              {OFFICE_LOCATIONS.map((location) => (
+                <div key={location.name} className={`contact-location ${location.className}`}>
+                  <MapPin size={18} aria-hidden="true" />
+                  <span>{location.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

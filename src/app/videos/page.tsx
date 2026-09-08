@@ -1825,78 +1825,7 @@ interface VideoItem {
   videoUrl?: string;
 }
 
-const VIDEOS: VideoItem[] = [
-  {
-    id: 1,
-    slug: 'v1',
-    title: 'Vishwasai Insights',
-    category: 'Industry Insights',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/JBdGQoGFJqU',
-  },
-  {
-    id: 2,
-    slug: 'v2',
-    title: 'Ideas That Create Impact',
-    category: 'Presentation',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/xiJs0XmPJyE',
-  },
-  {
-    id: 3,
-    slug: 'v3',
-    title: 'Cooperative Finance Insights',
-    category: 'Finance',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/KEpYlaux9rc',
-  },
-  {
-    id: 4,
-    slug: 'v4',
-    title: 'Building Better Cooperatives',
-    category: 'Interview',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/jiJYiesC42s',
-  },
-  {
-    id: 5,
-    slug: 'v5',
-    title: 'Leadership & Transformation',
-    category: 'Leadership',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/H_2UBj6k5oE',
-  },
-  {
-    id: 6,
-    slug: 'v6',
-    title: 'Future of Cooperative Business',
-    category: 'Business',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/vq01USo0Rno',
-  },
-  {
-    id: 7,
-    slug: 'v7',
-    title: 'Knowledge & Collaboration',
-    category: 'Industry Insights',
-    author: 'Vishwasai',
-    date: '',
-    image: '',
-    videoUrl: 'https://www.youtube.com/embed/czlsVK63gkk',
-  },
-];
+const VIDEOS: VideoItem[] = [];
 
 const VIDEO_CATEGORIES = [
   'All',

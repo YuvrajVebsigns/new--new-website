@@ -265,13 +265,13 @@ export default function Navbar() {
             Blogs
           </Link>
 
-          {/* <Link
+          <Link
             href="/videos"
             className={`nav-link ${pathname === '/videos' ? 'active' : ''}`}
             onClick={closeMobileMenu}
           >
             Videos
-          </Link> */}
+          </Link>
 
           <Link
             href="/events"

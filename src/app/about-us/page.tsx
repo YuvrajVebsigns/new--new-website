@@ -1567,8 +1567,9 @@ export default function AboutUsPage() {
           }
 
           .about-experience-card {
+            display: none;
             right: 15px;
-            bottom: 35px;
+            bottom: -20px;
           }
 
           .about-content-section {

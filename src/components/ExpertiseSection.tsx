@@ -355,8 +355,13 @@ export default function ExpertiseSection() {
       },
     );
 
-    elements.forEach((element, index) => {
-      element.style.transitionDelay = `${Math.min(index * 90, 500)}ms`;
+    elements.forEach((element) => {
+      const isExpertiseCard = element.classList.contains('expertise-card');
+      const cardIndex = isExpertiseCard
+        ? Array.from(section.querySelectorAll('.expertise-card')).indexOf(element)
+        : 0;
+
+      element.style.transitionDelay = isExpertiseCard ? `${cardIndex * 90}ms` : '0ms';
       observer.observe(element);
     });
 
