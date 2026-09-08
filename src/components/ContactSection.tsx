@@ -1,24 +1,24 @@
 'use client';
 
 import Image from 'next/image';
-import { ArrowUpRight, MapPin, RefreshCw, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, RefreshCw, ShieldCheck } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { submitWebsiteContact } from '@/services/contacts.service';
 
 const SERVICE_OPTIONS = [
-  'Business Strategy',
-  'Customer Experience',
-  'CIO Events & Conferences',
-  'Brand Recognition',
-  'Video Content',
+  'Cooperative & Financial Societies Registration',
+  'NBFC & Corporate Setup',
+  'Agricultural Support & FPO Formation',
+  'Compliance & Regulatory Advisory',
+  'Funding & Growth Strategy',
 ];
 
-const OFFICE_LOCATIONS = [
-  { name: 'Delhi', className: 'contact-location-delhi' },
-  { name: 'Ahilyanagar', className: 'contact-location-ahilyanagar' },
-  { name: 'Pune', className: 'contact-location-pune' },
-  { name: 'Mumbai', className: 'contact-location-mumbai' },
-];
+// const OFFICE_LOCATIONS = [
+//   { name: 'Delhi', className: 'contact-location-delhi' },
+//   { name: 'Ahilyanagar', className: 'contact-location-ahilyanagar' },
+//   { name: 'Pune', className: 'contact-location-pune' },
+//   { name: 'Mumbai', className: 'contact-location-mumbai' },
+// ];
 
 const TURNSTILE_SCRIPT_SRC =
   'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
@@ -129,7 +129,7 @@ export default function ContactSection() {
       try {
         const widgetId = window.turnstile.render(turnstileContainerRef.current, {
           sitekey: turnstileSiteKey,
-          size: 'invisible',
+          size: 'normal',
           execution: 'execute',
           theme: 'light',
 
@@ -391,11 +391,6 @@ export default function ContactSection() {
       return;
     }
 
-    if (!captchaToken) {
-      setPopupMessage('Please complete the CAPTCHA verification.');
-      return;
-    }
-
     /* -------------------------------------------------------
        SUBMIT
     ------------------------------------------------------- */
@@ -410,7 +405,6 @@ export default function ContactSection() {
         phone: trimmedPhone,
         service: trimmedService,
         message: trimmedMessage,
-        captchaToken,
       });
 
       setPopupMessage('Thank you! Your message has been received.');
@@ -441,20 +435,13 @@ export default function ContactSection() {
         <div className="contact-map-area">
           <div className="contact-city-image contact-location-map">
             <Image
-              src="/assets/blogs/contact.png"
+              src="/assets/blogs/image.png"
               alt="Map showing Vishwasai locations in Delhi, Ahilyanagar, Pune, and Mumbai"
               fill
               sizes="(max-width: 1000px) 100vw, 560px"
             />
 
-            <div className="contact-location-list" aria-label="Our locations">
-              {OFFICE_LOCATIONS.map((location) => (
-                <div key={location.name} className={`contact-location ${location.className}`}>
-                  <MapPin size={18} aria-hidden="true" />
-                  <span>{location.name}</span>
-                </div>
-              ))}
-            </div>
+            <div className="contact-location-list" aria-label="Our locations" />
           </div>
         </div>
 
@@ -678,7 +665,7 @@ export default function ContactSection() {
             <button
               type="submit"
               className="contact-btn"
-              disabled={isSubmitting || !isFormComplete || !captchaToken}
+              disabled={isSubmitting || !isFormComplete}
             >
               <span>{isSubmitting ? 'Sending...' : 'Submit'}</span>
 

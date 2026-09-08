@@ -1,6 +1,8 @@
 const configuredApiUrl = (process.env.NEXT_PUBLIC_API_URL ?? '').replace(/\/$/, '');
 
-export const API_BASE_URL = configuredApiUrl.replace(/\/api\/v1$/, '');
+export const API_BASE_URL = configuredApiUrl.endsWith('/api/v1')
+  ? configuredApiUrl.slice(0, -'/api/v1'.length)
+  : configuredApiUrl;
 
 export const API_ENDPOINTS = {
   AUTH: {

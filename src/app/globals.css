@@ -5947,7 +5947,7 @@ main.home-page > section {
 
 .page-hero-left .blog-hero-content {
   align-items: flex-start;
-  padding-left: clamp(28px, 8vw, 120px);
+  padding-left: clamp(10px, 4vw, 90px);
   text-align: left;
 }
 
@@ -7020,11 +7020,21 @@ main.home-page > section {
     min-height: 0;
   }
 
+  .home-hero .blog-hero-media {
+    left: -12px;
+    width: calc(100% + 24px);
+  }
+
   .blog-hero-content {
     padding: 0 18px;
     text-align: left;
     align-items: flex-start;
     margin-top: -50px;
+  }
+
+  .page-hero-left .blog-hero-content {
+    padding-left: 26px;
+    padding-right: 18px;
   }
 
   .home-hero .blog-hero-content {
@@ -7045,6 +7055,9 @@ main.home-page > section {
   }
 
   .home-hero .hero-badge {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
     animation: fadeInDown 0.8s ease-out 0.2s both;
   }
 
@@ -7088,6 +7101,16 @@ main.home-page > section {
   .home-hero {
     height: 323px;
     min-height: 0;
+  }
+
+  .home-hero .blog-hero-media {
+    left: -18px;
+    width: calc(100% + 36px);
+  }
+
+  .page-hero-left .blog-hero-content {
+    padding-left: 20px;
+    padding-right: 14px;
   }
 
   .blog-hero-content h1 {
@@ -16557,23 +16580,23 @@ main {
 }
 
 .contact-location-delhi {
-  top: 11%;
-  left: 42%;
+  top: 21%;
+  left: 34%;
 }
 
 .contact-location-ahilyanagar {
-  top: 38%;
-  left: 47%;
+  top: 57%;
+  left: 37%;
 }
 
 .contact-location-pune {
-  top: 43%;
-  left: 43%;
+  top: 62%;
+  left: 27%;
 }
 
 .contact-location-mumbai {
-  top: 47%;
-  left: 35%;
+  top: 55%;
+  left: 21%;
 }
 
 @media (max-width: 700px) {

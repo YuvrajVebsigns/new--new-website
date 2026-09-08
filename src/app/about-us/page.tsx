@@ -11,28 +11,28 @@ type AboutSection = {
 
 const aboutContent: AboutSection[] = [
   {
-    title: 'About Vishwasai',
-    heading: 'Navigating the Future of Cooperative Agriculture & Finance',
+    title: '',
+    heading: 'Navigating the Future of Cooperative Sector Agriculture & Finance',
     paragraphs: [
-      'Vishwasai is a consultancy organization specializing in cooperative agriculture and finance.',
-      'Established in 2009, the organization works with businesses, cooperative institutions and agricultural organizations to provide professional guidance across financial, management and business-development requirements.',
+      'Vishwasai is a consultancy organization specializing in the broader cooperative sector, agriculture, and finance.',
+      'Established in 2009, the organization works with businesses, cooperative societies, financial organizations, and agricultural enterprises to provide professional guidance across financial, management, and business-development requirements.',
       "Our objective is to simplify complex business and financial processes while providing practical and customized solutions based on each client's requirements.",
     ],
   },
   {
     title: 'Who We Are',
     paragraphs: [
-      'Vishwasai is a consultancy organization specializing in cooperative agriculture and finance.',
-      'Established in 2009, the organization works with businesses, cooperative institutions and agricultural organizations to provide professional guidance across financial, management and business-development requirements.',
+      'Vishwasai is a consultancy organization specializing in the broader cooperative sector, agriculture, and finance.',
+      'Established in 2009, the organization works with businesses, cooperative societies, financial organizations, and agricultural enterprises to provide professional guidance across financial, management, and business-development requirements.',
       "Our objective is to simplify complex business and financial processes while providing practical and customized solutions based on each client's requirements.",
     ],
   },
   {
     title: 'Our Understanding of Cooperative Finance',
     paragraphs: [
-      'A Cooperative Agriculture & Finance Society is a cooperative financial institution established under the applicable Cooperative Societies Act.',
-      'These organizations play an important role in providing financial services and support to their members and the wider agricultural ecosystem.',
-      'The cooperative ecosystem includes organizations such as:',
+      'A Cooperative Agriculture & Finance Society is a cooperative society established under the applicable Cooperative Societies Act and operates within the broader cooperative sector.',
+      'These organizations play an important role in providing financial services and support to their members and the wider agricultural and cooperative ecosystem.',
+      'The cooperative sector includes organizations such as:',
     ],
     list: [
       'Primary Agriculture Cooperative Societies (PACS)',
@@ -40,6 +40,7 @@ const aboutContent: AboutSection[] = [
       'FPO Federations',
       'Credit Cooperative Societies',
       'Multistate Cooperative Societies',
+      'Financial Organizations such as NBFCs',
     ],
   },
   {
@@ -59,7 +60,7 @@ const aboutContent: AboutSection[] = [
   {
     title: 'Why Vishwasai?',
     paragraphs: [
-      'Our consultants bring extensive experience in the cooperative sector and understand the unique challenges and opportunities associated with credit societies, multistate organizations and NBFCs.',
+      'Our consultants bring extensive experience in the cooperative sector and understand the unique challenges and opportunities associated with all types of cooperative societies, including multistate cooperative societies, credit societies, and financial organizations such as NBFCs.',
       'Every organization has different requirements. We focus on customized, relevant and actionable solutions rather than applying a one-size-fits-all approach.',
       'We remain committed to supporting our clients throughout their journey by providing continuous guidance and professional assistance.',
     ],
@@ -68,7 +69,7 @@ const aboutContent: AboutSection[] = [
     title: 'Experience',
     heading: 'Since 2009',
     paragraphs: [
-      'Vishwasai presents its journey as beginning in 2009, with a focus on consultancy for cooperative agriculture and finance.',
+      'Vishwasai presents its journey as beginning in 2009, with a focus on consultancy for the broader cooperative sector, agriculture, and finance.',
     ],
   },
 ];
@@ -302,7 +303,7 @@ export default function AboutUsPage() {
 
               <h1>
                 Navigating the Future of
-                <span> Cooperative Agriculture & Finance</span>
+                <span> Cooperative Sector Agriculture & Finance</span>
               </h1>
 
               <span className="about-page-heading-line" aria-hidden="true" />
