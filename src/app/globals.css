@@ -1261,7 +1261,12 @@ main.home-page > section {
   }
 
   .navbar .talk-btn {
-    display: none !important;
+    display: inline-flex !important;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   .menu-btn {
@@ -12142,7 +12147,12 @@ main {
   }
 
   .navbar .talk-btn {
-    display: none !important;
+    display: inline-flex !important;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   .menu-btn {
