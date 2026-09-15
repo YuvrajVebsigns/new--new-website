@@ -9,7 +9,7 @@ export default function TeamSection() {
         <section className="cfo-section">
           <div className="cfo-image-wrapper">
             <Image
-              src="/assets/brands/rohit.png"
+              src="/assets/brands/new.jpeg"
               alt="Dr. Ashok Eknathrao Pagire"
               fill
               priority

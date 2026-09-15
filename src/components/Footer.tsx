@@ -195,7 +195,7 @@ export default function Footer() {
                 </li>
 
                 <li>
-                  <Link href="/#contact-section">Contact Us</Link>
+                  <Link href="/contact">Contact Us</Link>
                 </li>
               </ul>
             </div>
