@@ -10,7 +10,7 @@ export default function TeamSection() {
           <div className="cfo-image-wrapper">
             <Image
               src="/assets/brands/rohit.png"
-              alt="Chief Financial Officer"
+              alt="Dr. Ashok Eknathrao Pagire"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -20,23 +20,21 @@ export default function TeamSection() {
 
           <div className="cfo-content">
             <div className="section-label">
-              <span>CHIEF FINANCIAL OFFICER</span>
+              <span>VISHWASAI CONSULTANCY</span>
               <span className="label-line" />
             </div>
 
-            <h1>Rohit Sharma</h1>
+            <h1>Dr. Ashok Eknathrao Pagire</h1>
 
-            <h2>Chief Financial Officer (CFO)</h2>
+            <h2>PhD in Co-operative Agriculture and Finance, India</h2>
 
             <p className="cfo-tagline">
-              Rohit Sharma brings over 18 years of experience in financial strategy, corporate
-              finance and business operations. As CFO, he leads the company&apos;s financial
-              planning, risk management and growth initiatives, ensuring long-term value for all
-              stakeholders.
+              Hello, I am Dr. Ashok Eknathrao Pagire. I have been working as a consultant in the
+              Co-operative Agriculture and Finance field for 17 years all over India.
             </p>
 
             <div className="highlights-header">
-              <span>EXPERIENCE</span>
+              <span>OUR WORK</span>
               <span className="highlight-line" />
             </div>
 
@@ -44,39 +42,31 @@ export default function TeamSection() {
               <div className="highlight-item">
                 <div className="highlight-icon">▣</div>
                 <div className="highlight-content">
-                  <h3>Experience</h3>
-                  <p>18+ years in finance, investment management and strategic planning.</p>
-                </div>
-              </div>
-              {/* 
-              <div className="highlight-item">
-                <div className="highlight-icon">◫</div>
-                <div className="highlight-content">
-                  <h3>Expertise</h3>
-                  <p>Financial planning, budgeting, risk management, mergers &amp; acquisitions.</p>
-                </div>
-              </div> */}
-
-              <div className="highlight-item">
-                <div className="highlight-icon">◨</div>
-                <div className="highlight-content">
-                  <h3>Education</h3>
-                  <p>CA (India), MBA – Finance (Top Business School)</p>
+                  <h3>570+ Registered Societies</h3>
+                  <p>
+                    Co-operative banks, NBFCs, multistate and credit societies, agro, hospital and
+                    housing societies, multipurpose NGOs, Section 8 companies, Mahila Bachat Gats
+                    and state-level co-operative institutions.
+                  </p>
                 </div>
               </div>
 
               <div className="highlight-item">
                 <div className="highlight-icon">◉</div>
                 <div className="highlight-content">
-                  <h3>Based In</h3>
-                  <p>Pune, Maharashtra</p>
+                  <h3>17,000+ Employment Opportunities</h3>
+                  <p>
+                    I have provided employment to 17,000+ unemployed people in this field. People
+                    across Maharashtra are working with me in the co-operative and other related
+                    fields.
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="quote-block">
               <span className="quote-mark">“</span>
-              <p>Strong financial foundations build a stronger tomorrow.</p>
+              <p>Thank you! VISHWASAI CONSULTANCY</p>
             </div>
           </div>
         </section>

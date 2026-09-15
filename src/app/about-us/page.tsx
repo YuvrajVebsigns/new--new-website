@@ -12,65 +12,28 @@ type AboutSection = {
 const aboutContent: AboutSection[] = [
   {
     title: '',
-    heading: 'Navigating the Future of Cooperative Sector Agriculture & Finance',
+    heading: 'Dr. Ashok Eknathrao Pagire',
     paragraphs: [
-      'Vishwasai is a consultancy organization specializing in the broader cooperative sector, agriculture, and finance.',
-      'Established in 2009, the organization works with businesses, cooperative societies, financial organizations, and agricultural enterprises to provide professional guidance across financial, management, and business-development requirements.',
-      "Our objective is to simplify complex business and financial processes while providing practical and customized solutions based on each client's requirements.",
+      'Hello, I am Dr. Ashok Eknathrao Pagire (PhD in Co-operative Agriculture and Finance), India.',
+      'I have been working as a consultant in the Co-operative Agriculture and Finance field for 17 years all over India.',
     ],
   },
   {
-    title: 'Who We Are',
+    title: 'Our Work',
     paragraphs: [
-      'Vishwasai is a consultancy organization specializing in the broader cooperative sector, agriculture, and finance.',
-      'Established in 2009, the organization works with businesses, cooperative societies, financial organizations, and agricultural enterprises to provide professional guidance across financial, management, and business-development requirements.',
-      "Our objective is to simplify complex business and financial processes while providing practical and customized solutions based on each client's requirements.",
+      'I have registered 570+ societies across Co-operative Banks, NBFCs, multistate societies, credit societies, agro organizations, hospitals, housing societies, multipurpose NGOs, Section 8 companies, Mahila Bachat Gats and state-level co-operative institutions.',
     ],
   },
   {
-    title: 'Our Understanding of Cooperative Finance',
+    title: 'Our Impact',
     paragraphs: [
-      'A Cooperative Agriculture & Finance Society is a cooperative society established under the applicable Cooperative Societies Act and operates within the broader cooperative sector.',
-      'These organizations play an important role in providing financial services and support to their members and the wider agricultural and cooperative ecosystem.',
-      'The cooperative sector includes organizations such as:',
-    ],
-    list: [
-      'Primary Agriculture Cooperative Societies (PACS)',
-      'Cooperative Federations',
-      'FPO Federations',
-      'Credit Cooperative Societies',
-      'Multistate Cooperative Societies',
-      'Financial Organizations such as NBFCs',
+      'I have provided employment to 17,000+ unemployed people in this field. People across Maharashtra are working with me in the co-operative and other related fields.',
     ],
   },
   {
-    title: 'Our Mission',
-    heading: 'Empowering Organizations Through Knowledge & Financial Solutions',
-    paragraphs: [
-      'Our mission is to provide reliable consultancy, strategic guidance and customized solutions that help organizations grow, comply with applicable requirements and achieve sustainable business objectives.',
-    ],
-  },
-  {
-    title: 'Our Vision',
-    heading: 'Creating a Stronger Cooperative & Agricultural Ecosystem',
-    paragraphs: [
-      'We aim to contribute to the development of a stronger and more financially capable cooperative and agricultural ecosystem through professional consultancy, knowledge and business solutions.',
-    ],
-  },
-  {
-    title: 'Why Vishwasai?',
-    paragraphs: [
-      'Our consultants bring extensive experience in the cooperative sector and understand the unique challenges and opportunities associated with all types of cooperative societies, including multistate cooperative societies, credit societies, and financial organizations such as NBFCs.',
-      'Every organization has different requirements. We focus on customized, relevant and actionable solutions rather than applying a one-size-fits-all approach.',
-      'We remain committed to supporting our clients throughout their journey by providing continuous guidance and professional assistance.',
-    ],
-  },
-  {
-    title: 'Experience',
-    heading: 'Since 2009',
-    paragraphs: [
-      'Vishwasai presents its journey as beginning in 2009, with a focus on consultancy for the broader cooperative sector, agriculture, and finance.',
-    ],
+    title: 'Vishwasai Consultancy',
+    heading: 'Thank you!',
+    paragraphs: ['Vishwasai Consultancy'],
   },
 ];
 
@@ -299,18 +262,18 @@ export default function AboutUsPage() {
             <div className="about-hero-content">
               <span className="about-eyebrow">WHO WE ARE</span>
 
-              <p className="about-page-heading-label">About Vishwasai</p>
+              <p className="about-page-heading-label">About Dr. Ashok Eknathrao Pagire</p>
 
               <h1>
-                Navigating the Future of
-                <span> Cooperative Sector Agriculture & Finance</span>
+                Dr. Ashok Eknathrao Pagire
+                <span> Co-operative Agriculture & Finance Consultant</span>
               </h1>
 
               <span className="about-page-heading-line" aria-hidden="true" />
 
               <p className="about-hero-description">
-                Professional consultancy, strategic guidance and practical financial solutions for a
-                stronger cooperative ecosystem.
+                17 years of consultancy experience across India in the Co-operative Agriculture and
+                Finance field.
               </p>
 
               <button className="about-explore-button" onClick={() => scrollToSection(0)}>
@@ -366,14 +329,17 @@ export default function AboutUsPage() {
         <section className="about-content-section">
           <div className="about-container">
             <div className="about-section-intro" data-reveal>
-              <span>OUR STORY</span>
+              <span>OUR JOURNEY</span>
 
               <h2>
-                Building trust through
-                <strong> knowledge & experience.</strong>
+                Building co-operative institutions through
+                <strong> knowledge, experience and opportunity.</strong>
               </h2>
 
-              <p>Explore the principles, experience and vision behind Vishwasai.</p>
+              <p>
+                Discover the work and impact of Dr. Ashok Eknathrao Pagire and Vishwasai
+                Consultancy.
+              </p>
             </div>
 
             <div className="about-text-list">
@@ -440,17 +406,16 @@ export default function AboutUsPage() {
 
           <div className="about-container">
             <div className="about-final-content" data-reveal>
-              <span>THE JOURNEY CONTINUES</span>
+              <span>VISHWASAI CONSULTANCY</span>
 
               <h2>
-                Growing together.
+                Creating opportunity.
                 <br />
-                Building a stronger future.
+                Strengthening co-operation.
               </h2>
 
               <p>
-                Vishwasai continues to support organizations through professional consultancy,
-                knowledge and practical business solutions.
+                Thank you for learning about Dr. Ashok Eknathrao Pagire and Vishwasai Consultancy.
               </p>
 
               <button

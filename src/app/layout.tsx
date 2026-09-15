@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import ScrollProgress from '@/components/ScrollProgress';
 import ScrollAnimator from '@/components/ScrollAnimator';
 import Footer from '@/components/Footer';
-import TrackingAndConsent from '@/components/TrackingAndConsent';
 
 export const metadata: Metadata = {
   title: 'VishwaSai Consultancy',
@@ -37,7 +36,6 @@ export default function RootLayout({
         <ScrollProgress />
         <ScrollAnimator />
         {children}
-        <TrackingAndConsent />
         <Footer />
       </body>
     </html>
