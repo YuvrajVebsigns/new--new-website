@@ -292,7 +292,7 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="navbar-actions">
-          <Link href="/#contact-section" className="talk-btn" onClick={closeMobileMenu}>
+          <Link href="/contact" className="talk-btn" onClick={closeMobileMenu}>
             <span>Enquire Now</span>
           </Link>
 

@@ -64,10 +64,10 @@ export default function TeamSection() {
               </div>
             </div>
 
-            <div className="quote-block">
+            {/* <div className="quote-block">
               <span className="quote-mark">“</span>
               <p>Thank you! VISHWASAI CONSULTANCY</p>
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
