@@ -12,6 +12,14 @@ import BlogsSection from '@/components/BlogsSection';
 // import DialoguesSection from '@/components/DialoguesSection';
 // import AssociateBrandsPage from '@/components/Associatebrands';
 import BotIcon from '@/components/BotIcon';
+import { faqs } from '@/constants/faq.constants';
+import { createPageMetadata } from '@/lib/seo';
+
+export const metadata = createPageMetadata(
+  'Cooperative Society, NBFC & FPO Registration Consultants in Pune | VishwaSai',
+  'VishwaSai provides cooperative society, NBFC, FPO registration, funding, compliance and agricultural consultancy services in Pune and across India.',
+  '/',
+);
 
 export default function Home() {
   return (
@@ -33,6 +41,23 @@ export default function Home() {
       {/* <AssociateBrandsPage /> */}
       <BotIcon />
       {/* </div> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer,
+              },
+            })),
+          }),
+        }}
+      />
     </main>
   );
 }
