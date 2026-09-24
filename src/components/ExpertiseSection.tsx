@@ -478,7 +478,7 @@ export default function ExpertiseSection() {
             <div className="about-vishwasai-orbit orbit-two" />
 
             <div className="about-vishwasai-center">
-              <span>15+</span>
+              <span>17</span>
               <small>Years</small>
             </div>
 
@@ -622,7 +622,7 @@ export default function ExpertiseSection() {
               <h3 className="expertise-card-title">Domain Expertise</h3>
 
               <p className="expertise-card-description">
-                15+ years of specialized sector experience.
+                17 years of specialized sector experience.
               </p>
             </div>
 

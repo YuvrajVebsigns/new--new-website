@@ -206,19 +206,19 @@ export default function Footer() {
 
               <ul className="footer-links">
                 <li>
-                  <Link href="/services/cooperative-societies">Cooperative Societies</Link>
+                  <span>Cooperative Societies</span>
                 </li>
 
                 <li>
-                  <Link href="/services/nbfc-corporate-setup">NBFC &amp; Corporate Setup</Link>
+                  <span>NBFC &amp; Corporate Setup</span>
                 </li>
 
                 <li>
-                  <Link href="/services/agricultural-support">Agricultural Support</Link>
+                  <span>Agricultural Support</span>
                 </li>
 
                 <li>
-                  <Link href="/services/compliance-advisory">Compliance &amp; Advisory</Link>
+                  <span>Compliance &amp; Advisory</span>
                 </li>
               </ul>
             </div>
