@@ -56,9 +56,9 @@ export default function TeamSection() {
                 <div className="highlight-content">
                   <h3>17,000+ Employment Opportunities</h3>
                   <p>
-                    I have provided employment to 17,000+ unemployed people in this field. People
-                    across Maharashtra are working with me in the co-operative and other related
-                    fields.
+                    I have provided employment opportunities to more than 17,000 unemployed people
+                    in this field. People across India are working with me in the cooperative and
+                    other related sectors.
                   </p>
                 </div>
               </div>
