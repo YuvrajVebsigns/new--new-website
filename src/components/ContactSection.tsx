@@ -435,7 +435,7 @@ export default function ContactSection() {
         <div className="contact-map-area">
           <div className="contact-city-image contact-location-map">
             <Image
-              src="/assets/blogs/image.png"
+              src="/assets/blogs/new-map.png"
               alt="Map showing Vishwasai locations in Delhi, Ahilyanagar, Pune, and Mumbai"
               fill
               sizes="(max-width: 1000px) 100vw, 560px"
